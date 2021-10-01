@@ -1,0 +1,183 @@
+﻿
+namespace DynaMirror
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.fileInLabel = new System.Windows.Forms.Label();
+            this.fileInTextBox = new System.Windows.Forms.TextBox();
+            this.fileInBrowseButton = new System.Windows.Forms.Button();
+            this.fileOutBrowseButton = new System.Windows.Forms.Button();
+            this.fileOutTextBox = new System.Windows.Forms.TextBox();
+            this.fileOutLabel = new System.Windows.Forms.Label();
+            this.fileInBrowseDialog = new System.Windows.Forms.OpenFileDialog();
+            this.fileOutBrowseDialog = new System.Windows.Forms.SaveFileDialog();
+            this.applyButton = new System.Windows.Forms.Button();
+            this.editAddedLabel = new System.Windows.Forms.Label();
+            this.hideEditAddedTimer = new System.Windows.Forms.Timer(this.components);
+            this.editOperation = new DynaMirror.EditOperation();
+            this.SuspendLayout();
+            // 
+            // fileInLabel
+            // 
+            this.fileInLabel.AutoSize = true;
+            this.fileInLabel.Location = new System.Drawing.Point(13, 13);
+            this.fileInLabel.Name = "fileInLabel";
+            this.fileInLabel.Size = new System.Drawing.Size(16, 13);
+            this.fileInLabel.TabIndex = 0;
+            this.fileInLabel.Text = "In";
+            // 
+            // fileInTextBox
+            // 
+            this.fileInTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileInTextBox.Location = new System.Drawing.Point(43, 10);
+            this.fileInTextBox.Name = "fileInTextBox";
+            this.fileInTextBox.Size = new System.Drawing.Size(714, 20);
+            this.fileInTextBox.TabIndex = 1;
+            // 
+            // fileInBrowseButton
+            // 
+            this.fileInBrowseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileInBrowseButton.Location = new System.Drawing.Point(763, 8);
+            this.fileInBrowseButton.Name = "fileInBrowseButton";
+            this.fileInBrowseButton.Size = new System.Drawing.Size(25, 23);
+            this.fileInBrowseButton.TabIndex = 2;
+            this.fileInBrowseButton.Text = "...";
+            this.fileInBrowseButton.UseVisualStyleBackColor = true;
+            this.fileInBrowseButton.Click += new System.EventHandler(this.fileInBrowseButton_Click);
+            // 
+            // fileOutBrowseButton
+            // 
+            this.fileOutBrowseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileOutBrowseButton.Location = new System.Drawing.Point(763, 34);
+            this.fileOutBrowseButton.Name = "fileOutBrowseButton";
+            this.fileOutBrowseButton.Size = new System.Drawing.Size(25, 23);
+            this.fileOutBrowseButton.TabIndex = 5;
+            this.fileOutBrowseButton.Text = "...";
+            this.fileOutBrowseButton.UseVisualStyleBackColor = true;
+            this.fileOutBrowseButton.Click += new System.EventHandler(this.fileOutBrowseButton_Click);
+            // 
+            // fileOutTextBox
+            // 
+            this.fileOutTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileOutTextBox.Location = new System.Drawing.Point(43, 36);
+            this.fileOutTextBox.Name = "fileOutTextBox";
+            this.fileOutTextBox.Size = new System.Drawing.Size(714, 20);
+            this.fileOutTextBox.TabIndex = 4;
+            // 
+            // fileOutLabel
+            // 
+            this.fileOutLabel.AutoSize = true;
+            this.fileOutLabel.Location = new System.Drawing.Point(13, 39);
+            this.fileOutLabel.Name = "fileOutLabel";
+            this.fileOutLabel.Size = new System.Drawing.Size(24, 13);
+            this.fileOutLabel.TabIndex = 3;
+            this.fileOutLabel.Text = "Out";
+            // 
+            // applyButton
+            // 
+            this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyButton.Enabled = false;
+            this.applyButton.Location = new System.Drawing.Point(12, 392);
+            this.applyButton.Name = "applyButton";
+            this.applyButton.Size = new System.Drawing.Size(776, 46);
+            this.applyButton.TabIndex = 6;
+            this.applyButton.Text = "Check edit cue";
+            this.applyButton.UseVisualStyleBackColor = true;
+            this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
+            // 
+            // editAddedLabel
+            // 
+            this.editAddedLabel.AutoSize = true;
+            this.editAddedLabel.Location = new System.Drawing.Point(13, 373);
+            this.editAddedLabel.Name = "editAddedLabel";
+            this.editAddedLabel.Size = new System.Drawing.Size(106, 13);
+            this.editAddedLabel.TabIndex = 8;
+            this.editAddedLabel.Text = "Edit added to queue!";
+            this.editAddedLabel.Visible = false;
+            // 
+            // hideEditAddedTimer
+            // 
+            this.hideEditAddedTimer.Interval = 1000;
+            this.hideEditAddedTimer.Tick += new System.EventHandler(this.hideEditAddedTimer_Tick);
+            // 
+            // editOperation
+            // 
+            this.editOperation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editOperation.Location = new System.Drawing.Point(12, 62);
+            this.editOperation.Name = "editOperation";
+            this.editOperation.Size = new System.Drawing.Size(776, 308);
+            this.editOperation.TabIndex = 7;
+            // 
+            // MainForm
+            // 
+            this.AllowDrop = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.editAddedLabel);
+            this.Controls.Add(this.editOperation);
+            this.Controls.Add(this.applyButton);
+            this.Controls.Add(this.fileOutBrowseButton);
+            this.Controls.Add(this.fileOutTextBox);
+            this.Controls.Add(this.fileOutLabel);
+            this.Controls.Add(this.fileInBrowseButton);
+            this.Controls.Add(this.fileInTextBox);
+            this.Controls.Add(this.fileInLabel);
+            this.Name = "MainForm";
+            this.Text = "DynaMirror";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label fileInLabel;
+        private System.Windows.Forms.TextBox fileInTextBox;
+        private System.Windows.Forms.Button fileInBrowseButton;
+        private System.Windows.Forms.Button fileOutBrowseButton;
+        private System.Windows.Forms.TextBox fileOutTextBox;
+        private System.Windows.Forms.Label fileOutLabel;
+        private System.Windows.Forms.OpenFileDialog fileInBrowseDialog;
+        private System.Windows.Forms.SaveFileDialog fileOutBrowseDialog;
+        private System.Windows.Forms.Button applyButton;
+        private EditOperation editOperation;
+        private System.Windows.Forms.Label editAddedLabel;
+        private System.Windows.Forms.Timer hideEditAddedTimer;
+    }
+}
+
