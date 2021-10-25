@@ -1,4 +1,4 @@
-# DynaMirror
+# DyM Chart Tool
 DyM Chart Tool is a tool used to assist in charting using Dynamaker by allowing for mirroring notes over a period of time and copying notes.
 
 ## How to use DyM Chart Tool
