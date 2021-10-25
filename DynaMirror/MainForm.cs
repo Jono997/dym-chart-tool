@@ -50,7 +50,7 @@ namespace DynaMirror
             fileInTextBox.Text = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
         }
 
-        private void editOperation_OperationMade(EditOperation sender, ChartOperation e)
+        private void editOperation_OperationMade(EditOperationControl sender, ChartOperation e)
         {
             #region Deserialise chart
             if (chart == null)
@@ -81,17 +81,27 @@ namespace DynaMirror
             #endregion
 
 
-            if (e.operation == ChartOperation.Operation.SwapLeftAndRight && !e.entire_chart && chart.m_leftRegion != chart.m_rightRegion)
-            {
-                MessageBox.Show("A side track swap can only be done on a time range if both sides are the same type");
-            }
-            else
+            if (!hasErrors(e))
             {
                 operations.Add(e);
                 editAddedLabel.Visible = true;
                 hideEditAddedTimer.Start();
                 applyButton.Enabled = true;
             }
+        }
+
+        private bool hasErrors(ChartOperation op)
+        {
+            if (op is MirrorOperation)
+            {
+                MirrorOperation e = (MirrorOperation)op;
+                if (e.operation == MirrorOperation.Operation.SwapLeftAndRight && !e.entire_chart && chart.m_leftRegion != chart.m_rightRegion)
+                {
+                    MessageBox.Show("A side track swap can only be done on a time range if both sides are the same type");
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void hideEditAddedTimer_Tick(object sender, EventArgs e)

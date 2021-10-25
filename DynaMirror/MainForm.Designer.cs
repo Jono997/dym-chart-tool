@@ -30,6 +30,7 @@ namespace DynaMirror
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileInLabel = new System.Windows.Forms.Label();
             this.fileInTextBox = new System.Windows.Forms.TextBox();
             this.fileInBrowseButton = new System.Windows.Forms.Button();
@@ -41,7 +42,7 @@ namespace DynaMirror
             this.applyButton = new System.Windows.Forms.Button();
             this.editAddedLabel = new System.Windows.Forms.Label();
             this.hideEditAddedTimer = new System.Windows.Forms.Timer(this.components);
-            this.editOperation = new DynaMirror.EditOperation();
+            this.editOperation = new DynaMirror.EditOperationControl();
             this.SuspendLayout();
             // 
             // fileInLabel
@@ -107,18 +108,19 @@ namespace DynaMirror
             this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.applyButton.Enabled = false;
-            this.applyButton.Location = new System.Drawing.Point(12, 392);
+            this.applyButton.Location = new System.Drawing.Point(12, 464);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(776, 46);
             this.applyButton.TabIndex = 6;
-            this.applyButton.Text = "Check edit cue";
+            this.applyButton.Text = "Check edit queue";
             this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
             // editAddedLabel
             // 
+            this.editAddedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editAddedLabel.AutoSize = true;
-            this.editAddedLabel.Location = new System.Drawing.Point(13, 373);
+            this.editAddedLabel.Location = new System.Drawing.Point(13, 448);
             this.editAddedLabel.Name = "editAddedLabel";
             this.editAddedLabel.Size = new System.Drawing.Size(106, 13);
             this.editAddedLabel.TabIndex = 8;
@@ -137,7 +139,7 @@ namespace DynaMirror
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editOperation.Location = new System.Drawing.Point(12, 62);
             this.editOperation.Name = "editOperation";
-            this.editOperation.Size = new System.Drawing.Size(776, 308);
+            this.editOperation.Size = new System.Drawing.Size(776, 378);
             this.editOperation.TabIndex = 7;
             // 
             // MainForm
@@ -145,7 +147,7 @@ namespace DynaMirror
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 522);
             this.Controls.Add(this.editAddedLabel);
             this.Controls.Add(this.editOperation);
             this.Controls.Add(this.applyButton);
@@ -155,8 +157,9 @@ namespace DynaMirror
             this.Controls.Add(this.fileInBrowseButton);
             this.Controls.Add(this.fileInTextBox);
             this.Controls.Add(this.fileInLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "DynaMirror";
+            this.Text = "DyM Chart Tool";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             this.ResumeLayout(false);
@@ -175,7 +178,7 @@ namespace DynaMirror
         private System.Windows.Forms.OpenFileDialog fileInBrowseDialog;
         private System.Windows.Forms.SaveFileDialog fileOutBrowseDialog;
         private System.Windows.Forms.Button applyButton;
-        private EditOperation editOperation;
+        private EditOperationControl editOperation;
         private System.Windows.Forms.Label editAddedLabel;
         private System.Windows.Forms.Timer hideEditAddedTimer;
     }

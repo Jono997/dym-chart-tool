@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DyM chart tool.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,11 +50,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChartOperation.cs" />
-    <Compile Include="EditOperation.cs">
+    <Compile Include="EditOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditOperationForm.Designer.cs">
+      <DependentUpon>EditOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopyOperation.cs" />
+    <Compile Include="MirrorOperation.cs" />
+    <Compile Include="EditOperationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditOperation.Designer.cs">
-      <DependentUpon>EditOperation.cs</DependentUpon>
+    <Compile Include="EditOperationControl.Designer.cs">
+      <DependentUpon>EditOperationControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -68,8 +79,11 @@
     <Compile Include="ReviewOperationsForm.Designer.cs">
       <DependentUpon>ReviewOperationsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditOperation.resx">
-      <DependentUpon>EditOperation.cs</DependentUpon>
+    <EmbeddedResource Include="EditOperationControl.resx">
+      <DependentUpon>EditOperationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditOperationForm.resx">
+      <DependentUpon>EditOperationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -98,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DyM chart tool.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

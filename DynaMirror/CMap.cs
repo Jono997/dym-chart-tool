@@ -100,5 +100,18 @@ namespace DynaMirror
             m_subId = -1;
             status = "Perfect";
         }
+
+        public CMapNoteAsset Copy()
+        {
+            CMapNoteAsset copy = new CMapNoteAsset();
+            copy.m_id = m_id;
+            copy.m_type = m_type;
+            copy.m_time = m_time;
+            copy.m_position = m_position;
+            copy.m_width = m_width;
+            copy.m_subId = m_subId;
+            copy.status = status;
+            return copy;
+        }
     }
 }
