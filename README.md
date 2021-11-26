@@ -7,12 +7,17 @@ Start by loading in a chart file. This can be done by inputting the path to the 
 ### Mirror
 First, select the `Mirror` tab and select whether this edit should affect the entire chart or just notes within a specific timeframe, using the buttons at the top of the window. After that, click one of the buttons corresponding to what action you want to do, Mirroring the left, right or bottom track or swapping the left and right tracks around. Clicking one of these buttons adds that edit to the queue.
 
-### Copy
-First, select the `Copy` tab and select the copy range's start and end times and what tracks you want to copy notes from. Then select where in the chart you want to paste these notes and click `Apply` to add the edit to the queue.
+### Copy/Merge
+First, select the `Copy/Merge` tab and select where to copy notes from (the chart in the `in` text box or another chart file entirely), the copy range's start and end times, and what tracks you want to copy notes from. Then select where in the chart you want to paste these notes and click `Apply` to add the edit to the queue.
+
+### Replace
+First, select the `Replace` tab and select whether this edit should affect the entire chart or just notes within a specific timeframe, and which note type to replace notes in the range with (NORMAL or CHAIN). Only NORMAL and CHAIN notes on the bottom track will be replaced, HOLD notes, and notes of any time on the side tracks, are unaffected.
 
 Once you have made all the edits you want, click the `Check edit queue` button to bring up a list of all the edits you have added to the queue. These will run in order from top to bottom. Click the `Apply edits` button to run these edits and save the resulting chart to the output file specified.  
 WARNING: If the output file already exists, it will be overwritten with no way to recover it.
 
 ## Upcoming features
 I don't have time at the moment to make DynaMirror into the tool I want it to be. Several features are missing that I plan to add later once I have more time to work on it. These features include, but may not be limited to:
-- Allowing the left and right tracks to be swapped for a specific portion of the chart (rather than the whole thing) when they're the same type of track.
+- Adding an option to allow edits that would not be seen in Dynamix, which would allow for:
+-- Swapping notes between side tracks during a portion of the chart regardless of track types
+-- Allowing note replacement on side tracks
