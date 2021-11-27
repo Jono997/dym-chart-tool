@@ -151,6 +151,8 @@ namespace DyMChartTool
             this.Controls.Add(this.closeAfterApplyCheckBox);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SettingsForm";
             this.Text = "DyM Chart Tool Settings";
             this.groupBox1.ResumeLayout(false);

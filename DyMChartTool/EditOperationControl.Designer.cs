@@ -45,6 +45,7 @@ namespace DyMChartTool
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.copyFromOtherFileRadioButton = new System.Windows.Forms.RadioButton();
+            this.applyReplaceButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.MirrorTab = new System.Windows.Forms.TabPage();
             this.CopyTab = new System.Windows.Forms.TabPage();
@@ -67,14 +68,17 @@ namespace DyMChartTool
             this.copyRangeStartNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.copyRangeEndNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.copyRangeDividerLabel = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.replaceTab = new System.Windows.Forms.TabPage();
-            this.ReplaceTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
-            this.applyReplaceButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.replaceTapRadioButton = new System.Windows.Forms.RadioButton();
             this.replaceSlideRadioButton = new System.Windows.Forms.RadioButton();
+            this.replaceTapRadioButton = new System.Windows.Forms.RadioButton();
+            this.ReplaceTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.replaceOnMainCheckBox = new System.Windows.Forms.CheckBox();
+            this.replaceOnLeftCheckBox = new System.Windows.Forms.CheckBox();
+            this.replaceOnRightCheckBox = new System.Windows.Forms.CheckBox();
             this.durationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).BeginInit();
@@ -92,6 +96,7 @@ namespace DyMChartTool
             ((System.ComponentModel.ISupportInitialize)(this.copyRangeEndNumericUpDown)).BeginInit();
             this.replaceTab.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // durationGroupBox
@@ -284,6 +289,19 @@ namespace DyMChartTool
             this.toolTip.SetToolTip(this.copyFromOtherFileRadioButton, "Copy notes from a section of another chart into this chart");
             this.copyFromOtherFileRadioButton.UseVisualStyleBackColor = true;
             this.copyFromOtherFileRadioButton.CheckedChanged += new System.EventHandler(this.copyFromOtherFileRadioButton_CheckedChanged);
+            // 
+            // applyReplaceButton
+            // 
+            this.applyReplaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyReplaceButton.Location = new System.Drawing.Point(4, 391);
+            this.applyReplaceButton.Name = "applyReplaceButton";
+            this.applyReplaceButton.Size = new System.Drawing.Size(765, 41);
+            this.applyReplaceButton.TabIndex = 2;
+            this.applyReplaceButton.Text = "Apply";
+            this.toolTip.SetToolTip(this.applyReplaceButton, "Mirror notes on the main track");
+            this.applyReplaceButton.UseVisualStyleBackColor = true;
+            this.applyReplaceButton.Click += new System.EventHandler(this.applyReplaceButton_Click);
             // 
             // tabControl
             // 
@@ -580,12 +598,9 @@ namespace DyMChartTool
             this.copyRangeDividerLabel.TabIndex = 2;
             this.copyRangeDividerLabel.Text = "-";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // replaceTab
             // 
+            this.replaceTab.Controls.Add(this.groupBox6);
             this.replaceTab.Controls.Add(this.groupBox5);
             this.replaceTab.Controls.Add(this.label2);
             this.replaceTab.Controls.Add(this.applyReplaceButton);
@@ -597,50 +612,26 @@ namespace DyMChartTool
             this.replaceTab.Text = "Replace";
             this.replaceTab.UseVisualStyleBackColor = true;
             // 
-            // ReplaceTimePlaceholderGroupBox
-            // 
-            this.ReplaceTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReplaceTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.ReplaceTimePlaceholderGroupBox.Name = "ReplaceTimePlaceholderGroupBox";
-            this.ReplaceTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
-            this.ReplaceTimePlaceholderGroupBox.TabIndex = 1;
-            this.ReplaceTimePlaceholderGroupBox.TabStop = false;
-            this.ReplaceTimePlaceholderGroupBox.Text = "Apply to";
-            // 
-            // applyReplaceButton
-            // 
-            this.applyReplaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.applyReplaceButton.Location = new System.Drawing.Point(4, 391);
-            this.applyReplaceButton.Name = "applyReplaceButton";
-            this.applyReplaceButton.Size = new System.Drawing.Size(765, 41);
-            this.applyReplaceButton.TabIndex = 2;
-            this.applyReplaceButton.Text = "Apply";
-            this.toolTip.SetToolTip(this.applyReplaceButton, "Mirror notes on the main track");
-            this.applyReplaceButton.UseVisualStyleBackColor = true;
-            this.applyReplaceButton.Click += new System.EventHandler(this.applyReplaceButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(317, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Note: This only affects Normal and Chain notes on the main track.";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.replaceSlideRadioButton);
             this.groupBox5.Controls.Add(this.replaceTapRadioButton);
             this.groupBox5.Location = new System.Drawing.Point(4, 89);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(128, 65);
+            this.groupBox5.Size = new System.Drawing.Size(151, 65);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Change notes to";
+            // 
+            // replaceSlideRadioButton
+            // 
+            this.replaceSlideRadioButton.AutoSize = true;
+            this.replaceSlideRadioButton.Location = new System.Drawing.Point(6, 42);
+            this.replaceSlideRadioButton.Name = "replaceSlideRadioButton";
+            this.replaceSlideRadioButton.Size = new System.Drawing.Size(52, 17);
+            this.replaceSlideRadioButton.TabIndex = 1;
+            this.replaceSlideRadioButton.Text = "Chain";
+            this.replaceSlideRadioButton.UseVisualStyleBackColor = true;
             // 
             // replaceTapRadioButton
             // 
@@ -654,15 +645,76 @@ namespace DyMChartTool
             this.replaceTapRadioButton.Text = "Normal";
             this.replaceTapRadioButton.UseVisualStyleBackColor = true;
             // 
-            // replaceSlideRadioButton
+            // ReplaceTimePlaceholderGroupBox
             // 
-            this.replaceSlideRadioButton.AutoSize = true;
-            this.replaceSlideRadioButton.Location = new System.Drawing.Point(6, 42);
-            this.replaceSlideRadioButton.Name = "replaceSlideRadioButton";
-            this.replaceSlideRadioButton.Size = new System.Drawing.Size(52, 17);
-            this.replaceSlideRadioButton.TabIndex = 1;
-            this.replaceSlideRadioButton.Text = "Chain";
-            this.replaceSlideRadioButton.UseVisualStyleBackColor = true;
+            this.ReplaceTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReplaceTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.ReplaceTimePlaceholderGroupBox.Name = "ReplaceTimePlaceholderGroupBox";
+            this.ReplaceTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
+            this.ReplaceTimePlaceholderGroupBox.TabIndex = 1;
+            this.ReplaceTimePlaceholderGroupBox.TabStop = false;
+            this.ReplaceTimePlaceholderGroupBox.Text = "Apply to";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(530, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(229, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Note: This only affects Normal and Chain notes";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.replaceOnRightCheckBox);
+            this.groupBox6.Controls.Add(this.replaceOnLeftCheckBox);
+            this.groupBox6.Controls.Add(this.replaceOnMainCheckBox);
+            this.groupBox6.Location = new System.Drawing.Point(4, 160);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(151, 93);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Change notes on tracks";
+            // 
+            // replaceOnMainCheckBox
+            // 
+            this.replaceOnMainCheckBox.AutoSize = true;
+            this.replaceOnMainCheckBox.Checked = true;
+            this.replaceOnMainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.replaceOnMainCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.replaceOnMainCheckBox.Name = "replaceOnMainCheckBox";
+            this.replaceOnMainCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.replaceOnMainCheckBox.TabIndex = 0;
+            this.replaceOnMainCheckBox.Text = "Main";
+            this.replaceOnMainCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // replaceOnLeftCheckBox
+            // 
+            this.replaceOnLeftCheckBox.AutoSize = true;
+            this.replaceOnLeftCheckBox.Enabled = false;
+            this.replaceOnLeftCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.replaceOnLeftCheckBox.Name = "replaceOnLeftCheckBox";
+            this.replaceOnLeftCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.replaceOnLeftCheckBox.TabIndex = 1;
+            this.replaceOnLeftCheckBox.Text = "Left";
+            this.replaceOnLeftCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // replaceOnRightCheckBox
+            // 
+            this.replaceOnRightCheckBox.AutoSize = true;
+            this.replaceOnRightCheckBox.Enabled = false;
+            this.replaceOnRightCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.replaceOnRightCheckBox.Name = "replaceOnRightCheckBox";
+            this.replaceOnRightCheckBox.Size = new System.Drawing.Size(51, 17);
+            this.replaceOnRightCheckBox.TabIndex = 2;
+            this.replaceOnRightCheckBox.Text = "Right";
+            this.replaceOnRightCheckBox.UseVisualStyleBackColor = true;
             // 
             // EditOperationControl
             // 
@@ -697,6 +749,8 @@ namespace DyMChartTool
             this.replaceTab.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -746,7 +800,11 @@ namespace DyMChartTool
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RadioButton replaceSlideRadioButton;
         private System.Windows.Forms.RadioButton replaceTapRadioButton;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button applyReplaceButton;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox replaceOnRightCheckBox;
+        private System.Windows.Forms.CheckBox replaceOnLeftCheckBox;
+        private System.Windows.Forms.CheckBox replaceOnMainCheckBox;
+        private System.Windows.Forms.Label label2;
     }
 }

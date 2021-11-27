@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using System.IO;
 using DyMChartTool.Operations;
 
@@ -29,7 +28,7 @@ namespace DyMChartTool
 
         private void Update_UI()
         {
-
+            editOperation.Update_UI();
         }
 
         private void fileInBrowseButton_Click(object sender, EventArgs e)
@@ -73,10 +72,15 @@ namespace DyMChartTool
             if (op is MirrorOperation)
             {
                 MirrorOperation e = (MirrorOperation)op;
-                if (e.operation == MirrorOperation.Operation.SwapLeftAndRight && !e.entire_chart && chart.m_leftRegion != chart.m_rightRegion)
+                if (e.operation == MirrorOperation.Operation.SwapLeftAndRight && !e.entire_chart && !Settings.IllegalOperations)
                 {
-                    MessageBox.Show("A side track swap can only be done on a time range if both sides are the same type");
-                    return true;
+                    if (!Deserialise_Chart())
+                        return true;
+                    if (chart.m_leftRegion != chart.m_rightRegion)
+                    {
+                        MessageBox.Show("A side track swap can only be done on a time range if both sides are the same type.\nIf you wish to do this anyway, please enable 'Allow illegal operations' in Settings.");
+                        return true;
+                    }
                 }
             }
             return false;
@@ -103,9 +107,8 @@ namespace DyMChartTool
             }
         }
 
-        private void applyButton_Click(object sender, EventArgs e)
+        private bool Deserialise_Chart()
         {
-            #region Deserialise chart
             if (chart == null)
             {
                 try
@@ -116,15 +119,21 @@ namespace DyMChartTool
                 {
                     MessageBox.Show("The file provided is not a valid chart file", "Chart parsing error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     chart = null;
-                    return;
+                    return false;
                 }
                 catch (LoadFailedException)
                 {
                     MessageBox.Show("The chart file could not be found", "Chart loading error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return false;
                 }
             }
-            #endregion
+            return true;
+        }
+
+        private void applyButton_Click(object sender, EventArgs e)
+        {
+            if (!Deserialise_Chart())
+                return;
 
             if (ValidPath(fileOutTextBox.Text) || MessageBox.Show("The output file is invalid or has not been set. Please set one before applying edits.", "Invalid output path", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {

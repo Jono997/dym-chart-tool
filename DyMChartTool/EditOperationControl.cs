@@ -26,6 +26,7 @@ namespace DyMChartTool
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
+            Update_UI();
         }
 
         internal void Init(ChartOperation operation)
@@ -59,8 +60,19 @@ namespace DyMChartTool
                     copyFromOtherFileRadioButton.Checked = op.source_path != null;
                     otherFileTextBox.Text = op.source_path;
                 }
+                else if (op_type == typeof(ReplaceOperation))
+                {
+                    ReplaceOperation op = (ReplaceOperation)operation;
+                    tabControl.SelectedIndex = 2;
+                    replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
+                }
             }
             #endregion
+        }
+
+        public void Update_UI()
+        {
+            replaceOnLeftCheckBox.Enabled = replaceOnRightCheckBox.Enabled = Settings.IllegalOperations;
         }
 
         private void buildMirrorOperation(MirrorOperation.Operation operation)
