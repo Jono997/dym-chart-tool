@@ -53,27 +53,6 @@ namespace DyMChartTool
 
         private void editOperation_OperationMade(EditOperationControl sender, ChartOperation e)
         {
-            #region Deserialise chart
-            if (chart == null)
-            {
-                try
-                {
-                    chart = CMap.Deserialise(fileInTextBox.Text);
-                }
-                catch (InvalidOperationException)
-                {
-                    MessageBox.Show("The file provided is not a valid chart file", "Chart parsing error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    chart = null;
-                    return;
-                }
-                catch (LoadFailedException)
-                {
-                    MessageBox.Show("The chart file could not be found", "Chart loading error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;                 
-                }
-            }
-            #endregion
-
             if (!hasErrors(e))
             {
                 operations.Add(e);
@@ -120,6 +99,27 @@ namespace DyMChartTool
 
         private void applyButton_Click(object sender, EventArgs e)
         {
+            #region Deserialise chart
+            if (chart == null)
+            {
+                try
+                {
+                    chart = CMap.Deserialise(fileInTextBox.Text);
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show("The file provided is not a valid chart file", "Chart parsing error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    chart = null;
+                    return;
+                }
+                catch (LoadFailedException)
+                {
+                    MessageBox.Show("The chart file could not be found", "Chart loading error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            #endregion
+
             if (ValidPath(fileOutTextBox.Text) || MessageBox.Show("The output file is invalid or has not been set. Please set one before applying edits.", "Invalid output path", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 ReviewOperationsForm reviewOperationsForm = new ReviewOperationsForm(chart, operations, fileOutTextBox.Text);
@@ -136,6 +136,11 @@ namespace DyMChartTool
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This feature is not yet available. Please check back in a later version.");
+        }
+
+        private void fileInTextBox_TextChanged(object sender, EventArgs e)
+        {
+            chart = null;
         }
     }
 }

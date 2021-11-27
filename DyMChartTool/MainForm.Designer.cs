@@ -66,6 +66,7 @@ namespace DyMChartTool
             this.fileInTextBox.Name = "fileInTextBox";
             this.fileInTextBox.Size = new System.Drawing.Size(714, 20);
             this.fileInTextBox.TabIndex = 1;
+            this.fileInTextBox.TextChanged += new System.EventHandler(this.fileInTextBox_TextChanged);
             // 
             // fileInBrowseButton
             // 
