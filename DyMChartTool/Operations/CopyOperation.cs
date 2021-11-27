@@ -25,14 +25,6 @@ namespace DyMChartTool.Operations
         /// </summary>
         public float destination_time { get; private set; }
 
-        public const byte MainTrackFlag = 0x01;
-
-        public const byte LeftTrackFlag = 0x02;
-
-        public const byte RightTrackFlag = 0x04;
-
-        public byte track_flags { get; private set; }
-
         /// <summary>
         /// If true, destination_time will be treated as if it were the start_time of the destination.<br />
         /// If false, destination_time will be treated as the time of the first note of the destination.
