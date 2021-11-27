@@ -43,14 +43,25 @@ namespace DyMChartTool.Operations
 
         public override CMap apply(CMap chart)
         {
-            List<int> apply_to = getApplyRange(chart.m_notes);
+            if ((track_flags & MainTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notes);
+            if ((track_flags & LeftTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notesLeft);
+            if ((track_flags & RightTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notesRight);
+            return chart;
+        }
+
+        private NoteCollection applyOnTrack(NoteCollection notes)
+        {
+            List<int> apply_to = getApplyRange(notes);
             foreach (int i in apply_to)
             {
-                CMapNoteAsset note = chart.m_notes.m_notes[i];
+                CMapNoteAsset note = notes.m_notes[i];
                 if (note.m_type == CMapNoteAsset.Type.NORMAL || note.m_type == CMapNoteAsset.Type.CHAIN)
                     note.m_type = type;
             }
-            return chart;
+            return notes;
         }
 
         public override string ToString()

@@ -164,9 +164,9 @@ namespace DyMChartTool
         {
             CMapNoteAsset.Type type = replaceTapRadioButton.Checked ? CMapNoteAsset.Type.NORMAL : CMapNoteAsset.Type.CHAIN;
             if (durationEntireChartRadioButton.Checked)
-                operation = new ReplaceOperation(type);
+                operation = new ReplaceOperation(type, replaceOnMainCheckBox.Checked, replaceOnLeftCheckBox.Checked, replaceOnRightCheckBox.Checked);
             else
-                operation = new ReplaceOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, type);
+                operation = new ReplaceOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, type, replaceOnMainCheckBox.Checked, replaceOnLeftCheckBox.Checked, replaceOnRightCheckBox.Checked);
             OperationMadeEventHandler handler = OperationMade;
             if (handler != null)
                 handler(this, operation);
