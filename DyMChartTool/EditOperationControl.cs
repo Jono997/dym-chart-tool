@@ -65,6 +65,9 @@ namespace DyMChartTool
                     ReplaceOperation op = (ReplaceOperation)operation;
                     tabControl.SelectedIndex = 2;
                     replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
+                    replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                    replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                    replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
                 }
             }
             #endregion
