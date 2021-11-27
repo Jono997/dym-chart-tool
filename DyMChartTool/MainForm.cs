@@ -24,6 +24,12 @@ namespace DyMChartTool
             chart = null;
             InitializeComponent();
             editOperation.OperationMade += editOperation_OperationMade;
+            Update_UI();
+        }
+
+        private void Update_UI()
+        {
+
         }
 
         private void fileInBrowseButton_Click(object sender, EventArgs e)
@@ -135,7 +141,8 @@ namespace DyMChartTool
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not yet available. Please check back in a later version.");
+            new SettingsForm().ShowDialog();
+            Update_UI();
         }
 
         private void fileInTextBox_TextChanged(object sender, EventArgs e)

@@ -27,7 +27,6 @@ namespace DyMChartTool
             this.output_file = output_file;
             refreshListBox();
             applyButton.Enabled = MainForm.ValidPath(output_file);
-            closeAfterApplyCheckBox.Checked = !Settings.KeepOpenAfterApply;
         }
 
         private void refreshListBox()
@@ -38,7 +37,6 @@ namespace DyMChartTool
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            Settings.KeepOpenAfterApply = !closeAfterApplyCheckBox.Checked;
             foreach (ChartOperation op in operations)
             {
                 chart = op.apply(chart);
