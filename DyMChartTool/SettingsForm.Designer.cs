@@ -39,6 +39,7 @@ namespace DyMChartTool
             this.sortByNoneRadioButton = new System.Windows.Forms.RadioButton();
             this.groupHoldAndSubCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sortByTypeRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@ namespace DyMChartTool
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(12, 178);
+            this.button1.Location = new System.Drawing.Point(12, 202);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(320, 45);
             this.button1.TabIndex = 0;
@@ -93,7 +94,7 @@ namespace DyMChartTool
             // sortByIDRadioButton
             // 
             this.sortByIDRadioButton.AutoSize = true;
-            this.sortByIDRadioButton.Location = new System.Drawing.Point(6, 42);
+            this.sortByIDRadioButton.Location = new System.Drawing.Point(6, 65);
             this.sortByIDRadioButton.Name = "sortByIDRadioButton";
             this.sortByIDRadioButton.Size = new System.Drawing.Size(36, 17);
             this.sortByIDRadioButton.TabIndex = 1;
@@ -105,7 +106,7 @@ namespace DyMChartTool
             // sortByNoneRadioButton
             // 
             this.sortByNoneRadioButton.AutoSize = true;
-            this.sortByNoneRadioButton.Location = new System.Drawing.Point(6, 65);
+            this.sortByNoneRadioButton.Location = new System.Drawing.Point(6, 88);
             this.sortByNoneRadioButton.Name = "sortByNoneRadioButton";
             this.sortByNoneRadioButton.Size = new System.Drawing.Size(51, 17);
             this.sortByNoneRadioButton.TabIndex = 2;
@@ -117,7 +118,7 @@ namespace DyMChartTool
             // groupHoldAndSubCheckBox
             // 
             this.groupHoldAndSubCheckBox.AutoSize = true;
-            this.groupHoldAndSubCheckBox.Location = new System.Drawing.Point(12, 156);
+            this.groupHoldAndSubCheckBox.Location = new System.Drawing.Point(12, 180);
             this.groupHoldAndSubCheckBox.Name = "groupHoldAndSubCheckBox";
             this.groupHoldAndSubCheckBox.Size = new System.Drawing.Size(177, 17);
             this.groupHoldAndSubCheckBox.TabIndex = 4;
@@ -130,21 +131,34 @@ namespace DyMChartTool
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.sortByTypeRadioButton);
             this.groupBox1.Controls.Add(this.sortByNoneRadioButton);
             this.groupBox1.Controls.Add(this.sortByIDRadioButton);
             this.groupBox1.Controls.Add(this.sortByTimeRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 92);
+            this.groupBox1.Size = new System.Drawing.Size(320, 116);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sort notes by:";
+            // 
+            // sortByTypeRadioButton
+            // 
+            this.sortByTypeRadioButton.AutoSize = true;
+            this.sortByTypeRadioButton.Location = new System.Drawing.Point(6, 42);
+            this.sortByTypeRadioButton.Name = "sortByTypeRadioButton";
+            this.sortByTypeRadioButton.Size = new System.Drawing.Size(49, 17);
+            this.sortByTypeRadioButton.TabIndex = 3;
+            this.sortByTypeRadioButton.TabStop = true;
+            this.sortByTypeRadioButton.Text = "Type";
+            this.toolTip1.SetToolTip(this.sortByTypeRadioButton, "Sort notes in the exported chart by note type");
+            this.sortByTypeRadioButton.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 235);
+            this.ClientSize = new System.Drawing.Size(344, 259);
             this.Controls.Add(this.groupHoldAndSubCheckBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.illegalOperationCheckBox);
@@ -173,5 +187,6 @@ namespace DyMChartTool
         private System.Windows.Forms.RadioButton sortByIDRadioButton;
         private System.Windows.Forms.RadioButton sortByTimeRadioButton;
         private System.Windows.Forms.CheckBox groupHoldAndSubCheckBox;
+        private System.Windows.Forms.RadioButton sortByTypeRadioButton;
     }
 }

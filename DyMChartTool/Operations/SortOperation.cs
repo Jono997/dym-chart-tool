@@ -41,6 +41,8 @@ namespace DyMChartTool.Operations
                         return a.m_id.CompareTo(b.m_id);
                     case Settings.SortByValue.Time:
                         return a.m_time.CompareTo(b.m_time);
+                    case Settings.SortByValue.Type:
+                        return a.m_type.CompareTo(b.m_type);
                 }
                 return 0;
             });
@@ -54,6 +56,8 @@ namespace DyMChartTool.Operations
                 {
                     case Settings.SortByValue.Time:
                         return a.time.CompareTo(b.time);
+                    case Settings.SortByValue.Type:
+                        return a.type.CompareTo(b.type);
                 }
                 return 0;
             });

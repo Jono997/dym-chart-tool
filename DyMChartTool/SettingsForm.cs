@@ -23,6 +23,9 @@ namespace DyMChartTool
                 case Settings.SortByValue.None:
                     sortByNoneRadioButton.Checked = true;
                     break;
+                case Settings.SortByValue.Type:
+                    sortByTypeRadioButton.Checked = true;
+                    break;
                 case Settings.SortByValue.Time:
                     sortByTimeRadioButton.Checked = true;
                     break;
@@ -41,6 +44,8 @@ namespace DyMChartTool
             Settings.SortByValue sortBy = Settings.SortByValue.None;
             if (sortByTimeRadioButton.Checked)
                 sortBy = Settings.SortByValue.Time;
+            else if (sortByTypeRadioButton.Checked)
+                sortBy = Settings.SortByValue.Type;
             else if (sortByIDRadioButton.Checked)
                 sortBy = Settings.SortByValue.ID;
             Settings.SortBy = sortBy;
