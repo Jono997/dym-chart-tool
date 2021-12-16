@@ -12,16 +12,26 @@ namespace DyMChartTool.Operations
         {
             Settings.SortByValue sort_by = Settings.SortBy;
             bool group_holds = Settings.GroupHoldAndSub;
-            if (sort_by != Settings.SortByValue.None || group_holds)
+            if (group_holds)
             {
-                SortNoteCollection(chart.m_notes, sort_by, group_holds);
-                SortNoteCollection(chart.m_notesLeft, sort_by, group_holds);
-                SortNoteCollection(chart.m_notesRight, sort_by, group_holds);
+                if (sort_by != Settings.SortByValue.None)
+                {
+                    SortNoteCollection(chart.m_notes, sort_by);
+                    SortNoteCollection(chart.m_notesLeft, sort_by);
+                    SortNoteCollection(chart.m_notesRight, sort_by);
+                }
+            }
+            else
+            {
+                // Due to how NoteListToNoteCollection works, the output will automatically group HOLD and SUB notes together
+                chart.m_notes = NoteListToNoteCollection(SortNoteList(NoteCollectionToNoteList(chart.m_notes), sort_by));
+                chart.m_notesLeft = NoteListToNoteCollection(SortNoteList(NoteCollectionToNoteList(chart.m_notesLeft), sort_by));
+                chart.m_notesRight = NoteListToNoteCollection(SortNoteList(NoteCollectionToNoteList(chart.m_notesRight), sort_by));
             }
             return chart;
         }
 
-        private void SortNoteCollection(NoteCollection notes, Settings.SortByValue sort_by, bool group_holds)
+        private void SortNoteCollection(NoteCollection notes, Settings.SortByValue sort_by)
         {
             Array.Sort(notes.m_notes, delegate (CMapNoteAsset a, CMapNoteAsset b)
             {
@@ -34,6 +44,20 @@ namespace DyMChartTool.Operations
                 }
                 return 0;
             });
+        }
+
+        private List<Note> SortNoteList(List<Note> notes, Settings.SortByValue sort_by)
+        {
+            notes.Sort(delegate (Note a, Note b)
+            {
+                switch (sort_by)
+                {
+                    case Settings.SortByValue.Time:
+                        return a.time.CompareTo(b.time);
+                }
+                return 0;
+            });
+            return notes;
         }
     }
 }
