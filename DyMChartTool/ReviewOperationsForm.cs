@@ -41,17 +41,7 @@ namespace DyMChartTool
             {
                 chart = op.apply(chart);
             }
-
-            #region Sort notes
-            if (Settings.SortBy != Settings.SortByValue.None || Settings.GroupHoldAndSub)
-            {
-                Settings.SortByValue sort_by = Settings.SortBy;
-                bool group_holds = Settings.GroupHoldAndSub;
-                SortNoteCollection(chart.m_notes, sort_by, group_holds);
-                SortNoteCollection(chart.m_notesLeft, sort_by, group_holds);
-                SortNoteCollection(chart.m_notesRight, sort_by, group_holds);
-            }
-            #endregion
+            chart = new SortOperation().apply(chart);
 
             chart.Serialise(output_file);
             if (Settings.KeepOpenAfterApply)
@@ -59,21 +49,6 @@ namespace DyMChartTool
             else
                 DialogResult = DialogResult.OK;
             Close();
-        }
-
-        private void SortNoteCollection(NoteCollection notes, Settings.SortByValue sort_by, bool group_holds)
-        {
-            Array.Sort(notes.m_notes, delegate (CMapNoteAsset a, CMapNoteAsset b)
-            {
-                switch (sort_by)
-                {
-                    case Settings.SortByValue.ID:
-                        return a.m_id.CompareTo(b.m_id);
-                    case Settings.SortByValue.Time:
-                        return a.m_time.CompareTo(b.m_time);
-                }
-                return 0;
-            });
         }
 
         private void editSelectedOperation(object sender, EventArgs e)
