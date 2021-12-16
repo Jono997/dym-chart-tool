@@ -235,7 +235,7 @@ namespace DyMChartTool.Operations
             {
                 Note note = note_list[i];
                 notes[notes_index].Add(note);
-                if (!start_from_start && note.time < anchor)
+                if (!start_from_start && note.time < anchor && note.time >= start_time)
                     anchor = note.time;
             }
             return anchor;
