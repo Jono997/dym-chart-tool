@@ -13,7 +13,8 @@ namespace DyMChartTool
         public enum RegionType
         {
             MIXER,
-            PAD
+            PAD,
+            MULTI
         }
 
         public string m_path;
