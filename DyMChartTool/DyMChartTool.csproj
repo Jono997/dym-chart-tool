@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="CMap.cs" />
     <Compile Include="Note.cs" />
+    <Compile Include="Operations\SortOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="AboutForm.cs">
       <SubType>Form</SubType>

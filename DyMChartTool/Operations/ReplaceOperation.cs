@@ -10,30 +10,58 @@ namespace DyMChartTool.Operations
     {
         public CMapNoteAsset.Type type { get; private set; }
 
-        public ReplaceOperation(CMapNoteAsset.Type type)
+        public ReplaceOperation(CMapNoteAsset.Type type, bool main, bool left, bool right)
         {
             entire_chart = true;
             this.type = type;
+            setTrackFlags(main, left, right);
         }
 
-        public ReplaceOperation(float start_time, float end_time, CMapNoteAsset.Type type)
+        public ReplaceOperation(CMapNoteAsset.Type type) : this(type, true, false, false) { }
+
+        public ReplaceOperation(float start_time, float end_time, CMapNoteAsset.Type type, bool main, bool left, bool right)
         {
             entire_chart = false;
             this.start_time = start_time;
             this.end_time = end_time;
             this.type = type;
+            setTrackFlags(main, left, right);
+        }
+
+        public ReplaceOperation(float start_time, float end_time, CMapNoteAsset.Type type) : this(start_time, end_time, type, true, false, false) { }
+
+        private void setTrackFlags(bool main, bool left, bool right)
+        {
+            track_flags = 0;
+            if (main)
+                track_flags = (byte)(track_flags | MainTrackFlag);
+            if (left)
+                track_flags = (byte)(track_flags | LeftTrackFlag);
+            if (right)
+                track_flags = (byte)(track_flags | RightTrackFlag);
         }
 
         public override CMap apply(CMap chart)
         {
-            List<int> apply_to = getApplyRange(chart.m_notes);
+            if ((track_flags & MainTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notes);
+            if ((track_flags & LeftTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notesLeft);
+            if ((track_flags & RightTrackFlag) > 0)
+                chart.m_notes = applyOnTrack(chart.m_notesRight);
+            return chart;
+        }
+
+        private NoteCollection applyOnTrack(NoteCollection notes)
+        {
+            List<int> apply_to = getApplyRange(notes);
             foreach (int i in apply_to)
             {
-                CMapNoteAsset note = chart.m_notes.m_notes[i];
+                CMapNoteAsset note = notes.m_notes[i];
                 if (note.m_type == CMapNoteAsset.Type.NORMAL || note.m_type == CMapNoteAsset.Type.CHAIN)
                     note.m_type = type;
             }
-            return chart;
+            return notes;
         }
 
         public override string ToString()

@@ -84,7 +84,8 @@ namespace DyMChartTool
         {
             None,
             Time,
-            ID
+            ID,
+            Type
         }
 
         internal static SortByValue SortBy

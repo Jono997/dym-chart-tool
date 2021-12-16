@@ -38,19 +38,19 @@ namespace DyMChartTool
             this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applyButton = new System.Windows.Forms.Button();
-            this.closeAfterApplyCheckBox = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // operationsListBox
             // 
-            this.operationsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.operationsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.operationsListBox.ContextMenuStrip = this.contextMenuStrip;
             this.operationsListBox.FormattingEnabled = true;
             this.operationsListBox.Location = new System.Drawing.Point(12, 12);
             this.operationsListBox.Name = "operationsListBox";
-            this.operationsListBox.Size = new System.Drawing.Size(291, 355);
+            this.operationsListBox.Size = new System.Drawing.Size(291, 381);
             this.operationsListBox.TabIndex = 0;
             this.operationsListBox.DoubleClick += new System.EventHandler(this.editSelectedOperation);
             // 
@@ -104,23 +104,11 @@ namespace DyMChartTool
             this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
-            // closeAfterApplyCheckBox
-            // 
-            this.closeAfterApplyCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.closeAfterApplyCheckBox.AutoSize = true;
-            this.closeAfterApplyCheckBox.Location = new System.Drawing.Point(12, 376);
-            this.closeAfterApplyCheckBox.Name = "closeAfterApplyCheckBox";
-            this.closeAfterApplyCheckBox.Size = new System.Drawing.Size(220, 17);
-            this.closeAfterApplyCheckBox.TabIndex = 2;
-            this.closeAfterApplyCheckBox.Text = "Close DyM Chart Tool after applying edits";
-            this.closeAfterApplyCheckBox.UseVisualStyleBackColor = true;
-            // 
             // ReviewOperationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 450);
-            this.Controls.Add(this.closeAfterApplyCheckBox);
             this.Controls.Add(this.applyButton);
             this.Controls.Add(this.operationsListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -130,7 +118,6 @@ namespace DyMChartTool
             this.Text = "Queued edits";
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -143,6 +130,5 @@ namespace DyMChartTool
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveDownToolStripMenuItem;
-        private System.Windows.Forms.CheckBox closeAfterApplyCheckBox;
     }
 }

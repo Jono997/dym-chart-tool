@@ -26,6 +26,7 @@ namespace DyMChartTool
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
+            Update_UI();
         }
 
         internal void Init(ChartOperation operation)
@@ -59,8 +60,22 @@ namespace DyMChartTool
                     copyFromOtherFileRadioButton.Checked = op.source_path != null;
                     otherFileTextBox.Text = op.source_path;
                 }
+                else if (op_type == typeof(ReplaceOperation))
+                {
+                    ReplaceOperation op = (ReplaceOperation)operation;
+                    tabControl.SelectedIndex = 2;
+                    replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
+                    replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                    replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                    replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                }
             }
             #endregion
+        }
+
+        public void Update_UI()
+        {
+            replaceOnLeftCheckBox.Enabled = replaceOnRightCheckBox.Enabled = Settings.IllegalOperations;
         }
 
         private void buildMirrorOperation(MirrorOperation.Operation operation)
@@ -152,9 +167,9 @@ namespace DyMChartTool
         {
             CMapNoteAsset.Type type = replaceTapRadioButton.Checked ? CMapNoteAsset.Type.NORMAL : CMapNoteAsset.Type.CHAIN;
             if (durationEntireChartRadioButton.Checked)
-                operation = new ReplaceOperation(type);
+                operation = new ReplaceOperation(type, replaceOnMainCheckBox.Checked, replaceOnLeftCheckBox.Checked, replaceOnRightCheckBox.Checked);
             else
-                operation = new ReplaceOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, type);
+                operation = new ReplaceOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, type, replaceOnMainCheckBox.Checked, replaceOnLeftCheckBox.Checked, replaceOnRightCheckBox.Checked);
             OperationMadeEventHandler handler = OperationMade;
             if (handler != null)
                 handler(this, operation);

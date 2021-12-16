@@ -19,6 +19,14 @@ namespace DyMChartTool.Operations
 
         public float end_time { get; private protected set; }
 
+        public const byte MainTrackFlag = 0x01;
+
+        public const byte LeftTrackFlag = 0x02;
+
+        public const byte RightTrackFlag = 0x04;
+
+        public byte track_flags { get; private protected set; }
+
         /// <summary>
         /// Destructively applies this operation to the chart and returns it.
         /// </summary>
