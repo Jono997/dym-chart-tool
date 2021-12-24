@@ -41,8 +41,8 @@ namespace DyMChartTool
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(339, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "DyM Chart Tool v0.10.0\r\nProgram by Jono99 with direction from Jmak and TehLightni" +
-    "ngChicken";
+            this.label1.Text = "DyM Chart Tool v1.0.0\r\nProgram by Jono99 with direction from Jmak and TehLightnin" +
+    "gChicken";
             // 
             // githubLinkLabel
             // 

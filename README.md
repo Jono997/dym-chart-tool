@@ -15,9 +15,3 @@ First, select the `Replace` tab and select whether this edit should affect the e
 
 Once you have made all the edits you want, click the `Check edit queue` button to bring up a list of all the edits you have added to the queue. These will run in order from top to bottom. Click the `Apply edits` button to run these edits and save the resulting chart to the output file specified.  
 WARNING: If the output file already exists, it will be overwritten with no way to recover it.
-
-## Upcoming features
-I don't have time at the moment to make DynaMirror into the tool I want it to be. Several features are missing that I plan to add later once I have more time to work on it. These features include, but may not be limited to:
-- Adding an option to allow edits that would not be seen in Dynamix, which would allow for:
--- Swapping notes between side tracks during a portion of the chart regardless of track types
--- Allowing note replacement on side tracks
