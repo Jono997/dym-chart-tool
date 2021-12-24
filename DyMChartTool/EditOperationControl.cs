@@ -174,5 +174,10 @@ namespace DyMChartTool
             if (handler != null)
                 handler(this, operation);
         }
+
+        private void durationTimeRangeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            timeRangeStartNumericUpDown.Enabled = timeRangeEndNumericUpDown.Enabled = durationTimeRangeRadioButton.Checked;
+        }
     }
 }
