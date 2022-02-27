@@ -14,6 +14,8 @@ namespace DyMChartTool
 {
     public partial class EditOperationControl : UserControl
     {
+        private TabPage[] PagesWithApplyTo;
+
         internal ChartOperation operation;
 
         internal event OperationMadeEventHandler OperationMade;
@@ -22,7 +24,8 @@ namespace DyMChartTool
         {
             operation = null;
             InitializeComponent();
-            
+            PagesWithApplyTo = new TabPage[] { mirrorTab, replaceTab, changeTimeTab };
+
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
@@ -159,7 +162,7 @@ namespace DyMChartTool
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex != 1)
+            if (PagesWithApplyTo.Contains(tabControl.SelectedTab))
                 tabControl.SelectedTab.Controls.Add(durationGroupBox);
         }
 
@@ -178,6 +181,17 @@ namespace DyMChartTool
         private void durationTimeRangeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             timeRangeStartNumericUpDown.Enabled = timeRangeEndNumericUpDown.Enabled = durationTimeRangeRadioButton.Checked;
+        }
+
+        private void moveNotesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            moveNotesGroupBox.Enabled = moveNotesRadioButton.Checked;
+            stretchNotesGroupBox.Enabled = !moveNotesRadioButton.Checked;
+        }
+
+        private void changeTimeApplyButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

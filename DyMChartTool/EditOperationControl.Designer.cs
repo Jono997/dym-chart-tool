@@ -47,7 +47,7 @@ namespace DyMChartTool
             this.copyFromOtherFileRadioButton = new System.Windows.Forms.RadioButton();
             this.applyReplaceButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.MirrorTab = new System.Windows.Forms.TabPage();
+            this.mirrorTab = new System.Windows.Forms.TabPage();
             this.CopyTab = new System.Windows.Forms.TabPage();
             this.copyDestinationGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -78,12 +78,29 @@ namespace DyMChartTool
             this.replaceTapRadioButton = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.ReplaceTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
+            this.changeTimeTab = new System.Windows.Forms.TabPage();
+            this.stretchNotesGroupBox = new System.Windows.Forms.GroupBox();
+            this.newBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.oldBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.moveNotesGroupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.moveAmountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.moveNotesRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.moveRightCheckBox = new System.Windows.Forms.CheckBox();
+            this.moveLeftCheckBox = new System.Windows.Forms.CheckBox();
+            this.moveMainCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.stretchNotesRadioButton = new System.Windows.Forms.RadioButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.changeTimeApplyButton = new System.Windows.Forms.Button();
             this.durationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.MirrorTab.SuspendLayout();
+            this.mirrorTab.SuspendLayout();
             this.CopyTab.SuspendLayout();
             this.copyDestinationGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,6 +114,13 @@ namespace DyMChartTool
             this.replaceTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.changeTimeTab.SuspendLayout();
+            this.stretchNotesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newBPMNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oldBPMNumericUpDown)).BeginInit();
+            this.moveNotesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.moveAmountNumericUpDown)).BeginInit();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // durationGroupBox
@@ -297,20 +321,20 @@ namespace DyMChartTool
             // 
             this.applyReplaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.applyReplaceButton.Location = new System.Drawing.Point(4, 391);
+            this.applyReplaceButton.Location = new System.Drawing.Point(-1, 394);
             this.applyReplaceButton.Name = "applyReplaceButton";
-            this.applyReplaceButton.Size = new System.Drawing.Size(765, 41);
+            this.applyReplaceButton.Size = new System.Drawing.Size(770, 41);
             this.applyReplaceButton.TabIndex = 2;
             this.applyReplaceButton.Text = "Apply";
-            this.toolTip.SetToolTip(this.applyReplaceButton, "Mirror notes on the main track");
             this.applyReplaceButton.UseVisualStyleBackColor = true;
             this.applyReplaceButton.Click += new System.EventHandler(this.applyReplaceButton_Click);
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.MirrorTab);
+            this.tabControl.Controls.Add(this.mirrorTab);
             this.tabControl.Controls.Add(this.CopyTab);
             this.tabControl.Controls.Add(this.replaceTab);
+            this.tabControl.Controls.Add(this.changeTimeTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -319,20 +343,20 @@ namespace DyMChartTool
             this.tabControl.TabIndex = 5;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
-            // MirrorTab
+            // mirrorTab
             // 
-            this.MirrorTab.Controls.Add(this.durationGroupBox);
-            this.MirrorTab.Controls.Add(this.mirrorBottomButton);
-            this.MirrorTab.Controls.Add(this.swapSidesButton);
-            this.MirrorTab.Controls.Add(this.mirrorLeftButton);
-            this.MirrorTab.Controls.Add(this.mirrorRightButton);
-            this.MirrorTab.Location = new System.Drawing.Point(4, 22);
-            this.MirrorTab.Name = "MirrorTab";
-            this.MirrorTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MirrorTab.Size = new System.Drawing.Size(768, 435);
-            this.MirrorTab.TabIndex = 0;
-            this.MirrorTab.Text = "Mirror";
-            this.MirrorTab.UseVisualStyleBackColor = true;
+            this.mirrorTab.Controls.Add(this.durationGroupBox);
+            this.mirrorTab.Controls.Add(this.mirrorBottomButton);
+            this.mirrorTab.Controls.Add(this.swapSidesButton);
+            this.mirrorTab.Controls.Add(this.mirrorLeftButton);
+            this.mirrorTab.Controls.Add(this.mirrorRightButton);
+            this.mirrorTab.Location = new System.Drawing.Point(4, 22);
+            this.mirrorTab.Name = "mirrorTab";
+            this.mirrorTab.Padding = new System.Windows.Forms.Padding(3);
+            this.mirrorTab.Size = new System.Drawing.Size(768, 435);
+            this.mirrorTab.TabIndex = 0;
+            this.mirrorTab.Text = "Mirror";
+            this.mirrorTab.UseVisualStyleBackColor = true;
             // 
             // CopyTab
             // 
@@ -714,10 +738,227 @@ namespace DyMChartTool
             this.ReplaceTimePlaceholderGroupBox.TabIndex = 1;
             this.ReplaceTimePlaceholderGroupBox.TabStop = false;
             this.ReplaceTimePlaceholderGroupBox.Text = "Apply to";
+            this.ReplaceTimePlaceholderGroupBox.Visible = false;
+            // 
+            // changeTimeTab
+            // 
+            this.changeTimeTab.Controls.Add(this.changeTimeApplyButton);
+            this.changeTimeTab.Controls.Add(this.stretchNotesGroupBox);
+            this.changeTimeTab.Controls.Add(this.moveNotesGroupBox);
+            this.changeTimeTab.Controls.Add(this.moveNotesRadioButton);
+            this.changeTimeTab.Controls.Add(this.groupBox8);
+            this.changeTimeTab.Controls.Add(this.groupBox7);
+            this.changeTimeTab.Controls.Add(this.stretchNotesRadioButton);
+            this.changeTimeTab.Location = new System.Drawing.Point(4, 22);
+            this.changeTimeTab.Name = "changeTimeTab";
+            this.changeTimeTab.Size = new System.Drawing.Size(768, 435);
+            this.changeTimeTab.TabIndex = 3;
+            this.changeTimeTab.Text = "Change Time";
+            this.changeTimeTab.UseVisualStyleBackColor = true;
+            // 
+            // stretchNotesGroupBox
+            // 
+            this.stretchNotesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.stretchNotesGroupBox.Controls.Add(this.newBPMNumericUpDown);
+            this.stretchNotesGroupBox.Controls.Add(this.label5);
+            this.stretchNotesGroupBox.Controls.Add(this.oldBPMNumericUpDown);
+            this.stretchNotesGroupBox.Controls.Add(this.label4);
+            this.stretchNotesGroupBox.Enabled = false;
+            this.stretchNotesGroupBox.Location = new System.Drawing.Point(107, 195);
+            this.stretchNotesGroupBox.Name = "stretchNotesGroupBox";
+            this.stretchNotesGroupBox.Size = new System.Drawing.Size(651, 44);
+            this.stretchNotesGroupBox.TabIndex = 5;
+            this.stretchNotesGroupBox.TabStop = false;
+            // 
+            // newBPMNumericUpDown
+            // 
+            this.newBPMNumericUpDown.DecimalPlaces = 3;
+            this.newBPMNumericUpDown.Location = new System.Drawing.Point(200, 14);
+            this.newBPMNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.newBPMNumericUpDown.Name = "newBPMNumericUpDown";
+            this.newBPMNumericUpDown.Size = new System.Drawing.Size(66, 20);
+            this.newBPMNumericUpDown.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(136, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "New BPM:";
+            // 
+            // oldBPMNumericUpDown
+            // 
+            this.oldBPMNumericUpDown.DecimalPlaces = 3;
+            this.oldBPMNumericUpDown.Location = new System.Drawing.Point(64, 14);
+            this.oldBPMNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.oldBPMNumericUpDown.Name = "oldBPMNumericUpDown";
+            this.oldBPMNumericUpDown.Size = new System.Drawing.Size(66, 20);
+            this.oldBPMNumericUpDown.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Old BPM:";
+            // 
+            // moveNotesGroupBox
+            // 
+            this.moveNotesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.moveNotesGroupBox.Controls.Add(this.label3);
+            this.moveNotesGroupBox.Controls.Add(this.moveAmountNumericUpDown);
+            this.moveNotesGroupBox.Location = new System.Drawing.Point(108, 120);
+            this.moveNotesGroupBox.Name = "moveNotesGroupBox";
+            this.moveNotesGroupBox.Size = new System.Drawing.Size(651, 44);
+            this.moveNotesGroupBox.TabIndex = 4;
+            this.moveNotesGroupBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(307, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Distance (put a negative number to move the notes backwards)";
+            // 
+            // moveAmountNumericUpDown
+            // 
+            this.moveAmountNumericUpDown.DecimalPlaces = 5;
+            this.moveAmountNumericUpDown.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            131072});
+            this.moveAmountNumericUpDown.Location = new System.Drawing.Point(319, 14);
+            this.moveAmountNumericUpDown.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.moveAmountNumericUpDown.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
+            this.moveAmountNumericUpDown.Name = "moveAmountNumericUpDown";
+            this.moveAmountNumericUpDown.Size = new System.Drawing.Size(169, 20);
+            this.moveAmountNumericUpDown.TabIndex = 1;
+            // 
+            // moveNotesRadioButton
+            // 
+            this.moveNotesRadioButton.AutoSize = true;
+            this.moveNotesRadioButton.Checked = true;
+            this.moveNotesRadioButton.Location = new System.Drawing.Point(107, 97);
+            this.moveNotesRadioButton.Name = "moveNotesRadioButton";
+            this.moveNotesRadioButton.Size = new System.Drawing.Size(52, 17);
+            this.moveNotesRadioButton.TabIndex = 0;
+            this.moveNotesRadioButton.TabStop = true;
+            this.moveNotesRadioButton.Text = "Move";
+            this.moveNotesRadioButton.UseVisualStyleBackColor = true;
+            this.moveNotesRadioButton.CheckedChanged += new System.EventHandler(this.moveNotesRadioButton_CheckedChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.moveRightCheckBox);
+            this.groupBox8.Controls.Add(this.moveLeftCheckBox);
+            this.groupBox8.Controls.Add(this.moveMainCheckBox);
+            this.groupBox8.Location = new System.Drawing.Point(3, 89);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(99, 100);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Tracks to move";
+            // 
+            // moveRightCheckBox
+            // 
+            this.moveRightCheckBox.AutoSize = true;
+            this.moveRightCheckBox.Checked = true;
+            this.moveRightCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.moveRightCheckBox.Enabled = false;
+            this.moveRightCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.moveRightCheckBox.Name = "moveRightCheckBox";
+            this.moveRightCheckBox.Size = new System.Drawing.Size(51, 17);
+            this.moveRightCheckBox.TabIndex = 5;
+            this.moveRightCheckBox.Text = "Right";
+            this.moveRightCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // moveLeftCheckBox
+            // 
+            this.moveLeftCheckBox.AutoSize = true;
+            this.moveLeftCheckBox.Checked = true;
+            this.moveLeftCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.moveLeftCheckBox.Enabled = false;
+            this.moveLeftCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.moveLeftCheckBox.Name = "moveLeftCheckBox";
+            this.moveLeftCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.moveLeftCheckBox.TabIndex = 4;
+            this.moveLeftCheckBox.Text = "Left";
+            this.moveLeftCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // moveMainCheckBox
+            // 
+            this.moveMainCheckBox.AutoSize = true;
+            this.moveMainCheckBox.Checked = true;
+            this.moveMainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.moveMainCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.moveMainCheckBox.Name = "moveMainCheckBox";
+            this.moveMainCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.moveMainCheckBox.TabIndex = 3;
+            this.moveMainCheckBox.Text = "Main";
+            this.moveMainCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Location = new System.Drawing.Point(3, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(756, 80);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Apply to";
+            this.groupBox7.Visible = false;
+            // 
+            // stretchNotesRadioButton
+            // 
+            this.stretchNotesRadioButton.AutoSize = true;
+            this.stretchNotesRadioButton.Location = new System.Drawing.Point(107, 172);
+            this.stretchNotesRadioButton.Name = "stretchNotesRadioButton";
+            this.stretchNotesRadioButton.Size = new System.Drawing.Size(59, 17);
+            this.stretchNotesRadioButton.TabIndex = 0;
+            this.stretchNotesRadioButton.Text = "Stretch";
+            this.stretchNotesRadioButton.UseVisualStyleBackColor = true;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // changeTimeApplyButton
+            // 
+            this.changeTimeApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeTimeApplyButton.Location = new System.Drawing.Point(-1, 395);
+            this.changeTimeApplyButton.Name = "changeTimeApplyButton";
+            this.changeTimeApplyButton.Size = new System.Drawing.Size(770, 41);
+            this.changeTimeApplyButton.TabIndex = 6;
+            this.changeTimeApplyButton.Text = "Apply";
+            this.changeTimeApplyButton.UseVisualStyleBackColor = true;
+            this.changeTimeApplyButton.Click += new System.EventHandler(this.changeTimeApplyButton_Click);
             // 
             // EditOperationControl
             // 
@@ -732,7 +973,7 @@ namespace DyMChartTool
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).EndInit();
             this.tabControl.ResumeLayout(false);
-            this.MirrorTab.ResumeLayout(false);
+            this.mirrorTab.ResumeLayout(false);
             this.CopyTab.ResumeLayout(false);
             this.copyDestinationGroupBox.ResumeLayout(false);
             this.copyDestinationGroupBox.PerformLayout();
@@ -754,6 +995,17 @@ namespace DyMChartTool
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.changeTimeTab.ResumeLayout(false);
+            this.changeTimeTab.PerformLayout();
+            this.stretchNotesGroupBox.ResumeLayout(false);
+            this.stretchNotesGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newBPMNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oldBPMNumericUpDown)).EndInit();
+            this.moveNotesGroupBox.ResumeLayout(false);
+            this.moveNotesGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.moveAmountNumericUpDown)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -772,7 +1024,7 @@ namespace DyMChartTool
         private System.Windows.Forms.Button mirrorRightButton;
         private System.Windows.Forms.Button swapSidesButton;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage MirrorTab;
+        private System.Windows.Forms.TabPage mirrorTab;
         private System.Windows.Forms.TabPage CopyTab;
         private System.Windows.Forms.GroupBox copyDestinationGroupBox;
         private System.Windows.Forms.GroupBox copySourceGroupBox;
@@ -809,5 +1061,22 @@ namespace DyMChartTool
         private System.Windows.Forms.CheckBox replaceOnLeftCheckBox;
         private System.Windows.Forms.CheckBox replaceOnMainCheckBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage changeTimeTab;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.CheckBox moveRightCheckBox;
+        private System.Windows.Forms.CheckBox moveLeftCheckBox;
+        private System.Windows.Forms.CheckBox moveMainCheckBox;
+        private System.Windows.Forms.GroupBox moveNotesGroupBox;
+        private System.Windows.Forms.GroupBox stretchNotesGroupBox;
+        private System.Windows.Forms.RadioButton stretchNotesRadioButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown moveAmountNumericUpDown;
+        private System.Windows.Forms.RadioButton moveNotesRadioButton;
+        private System.Windows.Forms.NumericUpDown newBPMNumericUpDown;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown oldBPMNumericUpDown;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button changeTimeApplyButton;
     }
 }
