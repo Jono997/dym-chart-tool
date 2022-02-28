@@ -37,12 +37,15 @@ namespace DyMChartTool.Operations
             return chart;
         }
 
+        #region getApplyRange
         /// <summary>
         /// Get the indexes of the notes to modify in the operation
         /// </summary>
         /// <param name="notes">The note collection to scan</param>
+        /// <param name="include_inflowing_holds">If true, hold notes that start before start_time, but end within range are included</param>
+        /// <param name="include_outflowing_holds">If true, hold notes that start within range, but end after end_time are included</param>
         /// <returns>An int list of all the indexes of the notes to modify</returns>
-        private protected List<int> getApplyRange(NoteCollection notes)
+        private protected List<int> getApplyRange(NoteCollection notes, bool include_inflowing_holds, bool include_outflowing_holds)
         {
             List<int> applyTo = new List<int>();
             if (entire_chart)
@@ -50,30 +53,6 @@ namespace DyMChartTool.Operations
                     applyTo.Add(i);
             else
             {
-                #region Old version
-                //List<int> found_subs = new List<int>();
-                //for (int i = 0; i < notes.m_notes.Length; i++)
-                //{
-                //    CMapNoteAsset note = notes.m_notes[i];
-                //    float time = note.m_time;
-                //    if (time >= start_time && time <= end_time)
-                //    {
-                //        applyTo.Add(i);
-                //        switch (note.m_type)
-                //        {
-                //            case CMapNoteAsset.Type.HOLD:
-                //                found_subs.Add(note.m_subId);
-                //                break;
-                //            case CMapNoteAsset.Type.SUB:
-                //                found_subs.Add(note.m_id);
-                //                break;
-                //        }
-                //    }
-                //    else if ((note.m_type == CMapNoteAsset.Type.HOLD && found_subs.Contains(note.m_subId)) || (note.m_type == CMapNoteAsset.Type.SUB && found_subs.Contains(note.m_id)))
-                //        applyTo.Add(i);
-                //}
-                #endregion
-
                 Dictionary<int, int[]> sub_pairs = new Dictionary<int, int[]>();
                 for (int i = 0; i < notes.m_notes.Length; i++)
                 {
@@ -100,7 +79,10 @@ namespace DyMChartTool.Operations
                 {
                     float start = notes.m_notes[hs[0]].m_time;
                     float end = notes.m_notes[hs[1]].m_time;
-                    if ((start >= start_time && start <= end_time) || (end >= start_time && end <= end_time) || (start < start_time && end > end_time))
+                    if (
+                            (include_inflowing_holds || start >= start_time) && start <= end_time &&
+                            (include_outflowing_holds || end <= end_time) && end >= start_time
+                       )
                         applyTo.AddRange(hs);
                 }
             }
@@ -111,8 +93,10 @@ namespace DyMChartTool.Operations
         /// Get the indexes of the notes to modify in the operation
         /// </summary>
         /// <param name="notes">The List of Note objects to scan</param>
+        /// <param name="include_inflowing_holds">If true, hold notes that start before start_time, but end within range are included</param>
+        /// <param name="include_outflowing_holds">If true, hold notes that start within range, but end after end_time are included</param>
         /// <returns>An int list of all the indexes of the notes to modify</returns>
-        private protected List<int> getApplyRange(List<Note> notes)
+        private protected List<int> getApplyRange(List<Note> notes, bool include_inflowing_holds, bool include_outflowing_holds)
         {
             List<int> applyTo = new List<int>();
             if (entire_chart)
@@ -124,12 +108,38 @@ namespace DyMChartTool.Operations
                 {
                     Note note = notes[i];
                     float end = note.time + note.length;
-                    if ((note.time >= start_time && note.time <= end_time) || (end >= start_time && end <= end_time) || (note.time < start_time && end > end_time))
+                    if (
+                            (include_inflowing_holds || note.time >= start_time) && note.time <= end_time &&
+                            (include_outflowing_holds || end <= end_time) && end >= start_time
+                       )
                         applyTo.Add(i);
                 }
             }
             return applyTo;
         }
+
+        /// <summary>
+        /// Get the indexes of the notes to modify in the operation
+        /// </summary>
+        /// <param name="notes">The note collection to scan</param>
+        /// <returns>An int list of all the indexes of the notes to modify</returns>
+        /// </summary>
+        private protected List<int> getApplyRange(NoteCollection notes)
+        {
+            return getApplyRange(notes, true, true);
+        }
+
+        /// <summary>
+        /// Get the indexes of the notes to modify in the operation
+        /// </summary>
+        /// <param name="notes">The List of Note objects to scan</param>
+        /// <returns>An int list of all the indexes of the notes to modify</returns>
+        /// </summary>
+        private protected List<int> getApplyRange(List<Note> notes)
+        {
+            return getApplyRange(notes, true, true);
+        }
+        #endregion
 
         /// <summary>
         /// Converts a NoteCollection into a List of Note objects and returns it
