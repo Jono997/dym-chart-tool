@@ -189,9 +189,41 @@ namespace DyMChartTool
             stretchNotesGroupBox.Enabled = !moveNotesRadioButton.Checked;
         }
 
+        private void strechByBPMRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            oldBPMNumericUpDown.Enabled = newBPMNumericUpDown.Enabled = scaleByBPMRadioButton.Enabled;
+            timeScaleNumericUpDown.Enabled = !scaleByBPMRadioButton.Checked;
+        }
+
         private void changeTimeApplyButton_Click(object sender, EventArgs e)
         {
-            
+            if (moveNotesRadioButton.Checked)
+            {
+                if (durationEntireChartRadioButton.Checked)
+                    operation = new TimeShiftOperation((float)moveAmountNumericUpDown.Value, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                else
+                    operation = new TimeShiftOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)moveAmountNumericUpDown.Value, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+            }
+            else
+            {
+                if (scaleByBPMRadioButton.Checked)
+                {
+                    if (durationEntireChartRadioButton.Checked)
+                        operation = new TimeScaleOperation((float)oldBPMNumericUpDown.Value, (float)newBPMNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                    else
+                        operation = new TimeScaleOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)oldBPMNumericUpDown.Value, (float)newBPMNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                }
+                else
+                {
+                    if (durationEntireChartRadioButton.Checked)
+                        operation = new TimeScaleOperation((float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                    else
+                        operation = new TimeScaleOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                }
+            }
+            OperationMadeEventHandler handler = OperationMade;
+            if (handler != null)
+                handler(this, operation);
         }
     }
 }

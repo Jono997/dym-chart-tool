@@ -18,25 +18,27 @@ namespace DyMChartTool.Operations
         /// </summary>
         public bool scale_hold_lengths { get; private set; }
 
-        public TimeScaleOperation(float scale, bool main_track, bool left_track, bool right_track)
+        public TimeScaleOperation(float scale, bool scale_hold_lengths, bool main_track, bool left_track, bool right_track)
         {
             entire_chart = true;
             this.scale = scale;
+            this.scale_hold_lengths = scale_hold_lengths;
             setTrackFlags(main_track, left_track, right_track);
         }
 
-        public TimeScaleOperation(float old_bpm, float new_bpm, bool main_track, bool left_track, bool right_track) : this(new_bpm / old_bpm, main_track, left_track, right_track) { }
+        public TimeScaleOperation(float old_bpm, float new_bpm, bool scale_hold_lengths, bool main_track, bool left_track, bool right_track) : this(new_bpm / old_bpm, scale_hold_lengths, main_track, left_track, right_track) { }
 
-        public TimeScaleOperation(float start_time, float end_time, float scale, bool main_track, bool left_track, bool right_track)
+        public TimeScaleOperation(float start_time, float end_time, float scale, bool scale_hold_lengths, bool main_track, bool left_track, bool right_track)
         {
             entire_chart = false;
             this.start_time = start_time;
             this.end_time = end_time;
             this.scale = scale;
+            this.scale_hold_lengths = scale_hold_lengths;
             setTrackFlags(main_track, left_track, right_track);
         }
 
-        public TimeScaleOperation(float start_time, float end_time, float old_bpm, float new_bpm, bool main_track, bool left_track, bool right_track) : this(start_time, end_time, new_bpm / old_bpm, main_track, left_track, right_track) { }
+        public TimeScaleOperation(float start_time, float end_time, float old_bpm, float new_bpm, bool scale_hold_lengths, bool main_track, bool left_track, bool right_track) : this(start_time, end_time, new_bpm / old_bpm, scale_hold_lengths, main_track, left_track, right_track) { }
 
         public override CMap apply(CMap chart)
         {
