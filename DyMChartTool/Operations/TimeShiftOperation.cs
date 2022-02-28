@@ -45,5 +45,10 @@ namespace DyMChartTool.Operations
                 notes.m_notes[i].m_time += shift_duration;
             return notes;
         }
+
+        public override string ToString()
+        {
+            return $"Move {durationToString()} {shift_duration} seconds";
+        }
     }
 }
