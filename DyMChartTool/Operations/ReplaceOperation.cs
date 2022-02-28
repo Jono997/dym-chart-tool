@@ -30,17 +30,6 @@ namespace DyMChartTool.Operations
 
         public ReplaceOperation(float start_time, float end_time, CMapNoteAsset.Type type) : this(start_time, end_time, type, true, false, false) { }
 
-        private void setTrackFlags(bool main, bool left, bool right)
-        {
-            track_flags = 0;
-            if (main)
-                track_flags = (byte)(track_flags | MainTrackFlag);
-            if (left)
-                track_flags = (byte)(track_flags | LeftTrackFlag);
-            if (right)
-                track_flags = (byte)(track_flags | RightTrackFlag);
-        }
-
         public override CMap apply(CMap chart)
         {
             if ((track_flags & MainTrackFlag) > 0)
