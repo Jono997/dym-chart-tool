@@ -17,6 +17,7 @@ namespace DyMChartTool
             InitializeComponent();
 
             closeAfterApplyCheckBox.Checked = !Settings.KeepOpenAfterApply;
+            singleEditModeCheckBox.Checked = Settings.SingleEditMode;
             illegalOperationCheckBox.Checked = Settings.IllegalOperations;
             switch (Settings.SortBy)
             {
@@ -39,6 +40,7 @@ namespace DyMChartTool
         private void button1_Click(object sender, EventArgs e)
         {
             Settings.KeepOpenAfterApply = !closeAfterApplyCheckBox.Checked;
+            Settings.SingleEditMode = singleEditModeCheckBox.Checked;
             Settings.IllegalOperations = illegalOperationCheckBox.Checked;
             
             Settings.SortByValue sortBy = Settings.SortByValue.None;
