@@ -57,6 +57,7 @@
       <DependentUpon>EditOperationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Operations\CopyOperation.cs" />
+    <Compile Include="Operations\DeleteOperation.cs" />
     <Compile Include="Operations\MirrorOperation.cs" />
     <Compile Include="EditOperationControl.cs">
       <SubType>UserControl</SubType>

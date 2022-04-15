@@ -770,14 +770,18 @@ namespace DyMChartTool
             this.deleteApplyButton.TabIndex = 3;
             this.deleteApplyButton.Text = "Apply";
             this.deleteApplyButton.UseVisualStyleBackColor = true;
+            this.deleteApplyButton.Click += new System.EventHandler(this.deleteApplyButton_Click);
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.deleteTracksGroupBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.deleteTypeGroupBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.deleteTracksGroupBox, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 89);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -803,7 +807,8 @@ namespace DyMChartTool
             // deleteRightTrackCheckBox
             // 
             this.deleteRightTrackCheckBox.AutoSize = true;
-            this.deleteRightTrackCheckBox.Enabled = false;
+            this.deleteRightTrackCheckBox.Checked = true;
+            this.deleteRightTrackCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.deleteRightTrackCheckBox.Location = new System.Drawing.Point(6, 65);
             this.deleteRightTrackCheckBox.Name = "deleteRightTrackCheckBox";
             this.deleteRightTrackCheckBox.Size = new System.Drawing.Size(51, 17);
@@ -814,7 +819,8 @@ namespace DyMChartTool
             // deleteLeftTrackCheckBox
             // 
             this.deleteLeftTrackCheckBox.AutoSize = true;
-            this.deleteLeftTrackCheckBox.Enabled = false;
+            this.deleteLeftTrackCheckBox.Checked = true;
+            this.deleteLeftTrackCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.deleteLeftTrackCheckBox.Location = new System.Drawing.Point(6, 42);
             this.deleteLeftTrackCheckBox.Name = "deleteLeftTrackCheckBox";
             this.deleteLeftTrackCheckBox.Size = new System.Drawing.Size(44, 17);

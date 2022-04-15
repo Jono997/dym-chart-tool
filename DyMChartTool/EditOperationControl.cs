@@ -185,5 +185,16 @@ namespace DyMChartTool
         {
             timeRangeStartNumericUpDown.Enabled = timeRangeEndNumericUpDown.Enabled = durationTimeRangeRadioButton.Checked;
         }
+
+        private void deleteApplyButton_Click(object sender, EventArgs e)
+        {
+            if (durationEntireChartRadioButton.Checked)
+                operation = new DeleteOperation(deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
+            else
+                operation = new DeleteOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
+            OperationMadeEventHandler handler = OperationMade;
+            if (handler != null)
+                handler(this, operation);
+        }
     }
 }
