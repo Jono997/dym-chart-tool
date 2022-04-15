@@ -48,7 +48,7 @@ namespace DyMChartTool.Operations
 
         public override string ToString()
         {
-            return $"Move {durationToString()} {shift_duration} seconds";
+            return $"Move {durationToString()} {shift_duration} beats";
         }
     }
 }
