@@ -158,5 +158,11 @@ namespace DyMChartTool
         {
             chart = null;
         }
+
+        private void clearInOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fileInTextBox.Text = fileOutTextBox.Text = "";
+            editOperation.Clear_TimeRange();
+        }
     }
 }

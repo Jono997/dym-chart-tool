@@ -78,6 +78,11 @@ namespace DyMChartTool
             replaceOnLeftCheckBox.Enabled = replaceOnRightCheckBox.Enabled = Settings.IllegalOperations;
         }
 
+        public void Clear_TimeRange()
+        {
+            timeRangeStartNumericUpDown.Value = timeRangeEndNumericUpDown.Value = copyRangeStartNumericUpDown.Value = copyRangeEndNumericUpDown.Value = copyDestinationTimeNumericUpDown.Value = 0;
+        }
+
         private void buildMirrorOperation(MirrorOperation.Operation operation)
         {
             if (durationEntireChartRadioButton.Checked)
