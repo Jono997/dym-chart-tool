@@ -100,5 +100,11 @@ namespace DyMChartTool
                 operationsListBox.SelectedIndex = current_operation + 1;
             }
         }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            operations.Clear();
+            refreshListBox();
+        }
     }
 }
