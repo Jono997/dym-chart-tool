@@ -26,6 +26,7 @@ namespace DyMChartTool
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
+            deleteTab.Controls.Remove(deleteTimePlaceholderGroupBox);
             Update_UI();
         }
 
