@@ -38,8 +38,9 @@ namespace DyMChartTool
             this.sortByIDRadioButton = new System.Windows.Forms.RadioButton();
             this.sortByNoneRadioButton = new System.Windows.Forms.RadioButton();
             this.groupHoldAndSubCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.sortByTypeRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.singleEditModeCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@ namespace DyMChartTool
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(12, 202);
+            this.button1.Location = new System.Drawing.Point(12, 224);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(320, 45);
             this.button1.TabIndex = 0;
@@ -70,7 +71,7 @@ namespace DyMChartTool
             // illegalOperationCheckBox
             // 
             this.illegalOperationCheckBox.AutoSize = true;
-            this.illegalOperationCheckBox.Location = new System.Drawing.Point(12, 35);
+            this.illegalOperationCheckBox.Location = new System.Drawing.Point(12, 58);
             this.illegalOperationCheckBox.Name = "illegalOperationCheckBox";
             this.illegalOperationCheckBox.Size = new System.Drawing.Size(132, 17);
             this.illegalOperationCheckBox.TabIndex = 2;
@@ -118,7 +119,7 @@ namespace DyMChartTool
             // groupHoldAndSubCheckBox
             // 
             this.groupHoldAndSubCheckBox.AutoSize = true;
-            this.groupHoldAndSubCheckBox.Location = new System.Drawing.Point(12, 180);
+            this.groupHoldAndSubCheckBox.Location = new System.Drawing.Point(12, 203);
             this.groupHoldAndSubCheckBox.Name = "groupHoldAndSubCheckBox";
             this.groupHoldAndSubCheckBox.Size = new System.Drawing.Size(177, 17);
             this.groupHoldAndSubCheckBox.TabIndex = 4;
@@ -126,21 +127,6 @@ namespace DyMChartTool
             this.toolTip1.SetToolTip(this.groupHoldAndSubCheckBox, "Always place a hold end note immediately after its respective hold in the chart f" +
         "ile, regardless of sort setting.");
             this.groupHoldAndSubCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.sortByTypeRadioButton);
-            this.groupBox1.Controls.Add(this.sortByNoneRadioButton);
-            this.groupBox1.Controls.Add(this.sortByIDRadioButton);
-            this.groupBox1.Controls.Add(this.sortByTimeRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 58);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 116);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sort notes by:";
             // 
             // sortByTypeRadioButton
             // 
@@ -154,11 +140,40 @@ namespace DyMChartTool
             this.toolTip1.SetToolTip(this.sortByTypeRadioButton, "Sort notes in the exported chart by note type");
             this.sortByTypeRadioButton.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.sortByTypeRadioButton);
+            this.groupBox1.Controls.Add(this.sortByNoneRadioButton);
+            this.groupBox1.Controls.Add(this.sortByIDRadioButton);
+            this.groupBox1.Controls.Add(this.sortByTimeRadioButton);
+            this.groupBox1.Location = new System.Drawing.Point(12, 81);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(320, 116);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sort notes by:";
+            // 
+            // singleEditModeCheckBox
+            // 
+            this.singleEditModeCheckBox.AutoSize = true;
+            this.singleEditModeCheckBox.Location = new System.Drawing.Point(12, 35);
+            this.singleEditModeCheckBox.Name = "singleEditModeCheckBox";
+            this.singleEditModeCheckBox.Size = new System.Drawing.Size(134, 17);
+            this.singleEditModeCheckBox.TabIndex = 5;
+            this.singleEditModeCheckBox.Text = "Immediately apply edits";
+            this.toolTip1.SetToolTip(this.singleEditModeCheckBox, "Applies edits the moment they\'re set instead of sending them to the queue\r\nNOTE: " +
+        "The \"Close DyM Chart Tool after applying edits\" setting still applies with this " +
+        "enabled.");
+            this.singleEditModeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 259);
+            this.ClientSize = new System.Drawing.Size(344, 281);
+            this.Controls.Add(this.singleEditModeCheckBox);
             this.Controls.Add(this.groupHoldAndSubCheckBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.illegalOperationCheckBox);
@@ -188,5 +203,6 @@ namespace DyMChartTool
         private System.Windows.Forms.RadioButton sortByTimeRadioButton;
         private System.Windows.Forms.CheckBox groupHoldAndSubCheckBox;
         private System.Windows.Forms.RadioButton sortByTypeRadioButton;
+        private System.Windows.Forms.CheckBox singleEditModeCheckBox;
     }
 }

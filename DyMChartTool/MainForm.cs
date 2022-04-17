@@ -16,6 +16,7 @@ namespace DyMChartTool
     {
         private List<ChartOperation> operations;
         private CMap chart;
+        private string[] editAddedLabel_text;
 
         public MainForm()
         {
@@ -23,6 +24,7 @@ namespace DyMChartTool
             chart = null;
             InitializeComponent();
             editOperation.OperationMade += editOperation_OperationMade;
+            editAddedLabel_text = editAddedLabel.Text.Split('|');
             Update_UI();
         }
 
@@ -60,10 +62,41 @@ namespace DyMChartTool
         {
             if (!hasErrors(e))
             {
-                operations.Add(e);
-                editAddedLabel.Visible = true;
-                hideEditAddedTimer.Start();
-                applyButton.Enabled = true;
+                if (Settings.SingleEditMode)
+                {
+                    string output_path = fileOutTextBox.Text;
+                    if (!ValidPath(output_path))
+                    {
+                        if (fileOutBrowseDialog.ShowDialog() == DialogResult.OK)
+                            output_path = fileOutBrowseDialog.FileName;
+                        else
+                            return;
+                    }
+
+                    if (Deserialise_Chart())
+                    {
+                        chart = new SortOperation().apply(e.apply(chart));
+                        chart.Serialise(output_path);
+                        if (Settings.KeepOpenAfterApply)
+                        {
+                            editAddedLabel.Text = editAddedLabel_text[1];
+                            editAddedLabel.Visible = true;
+                            hideEditAddedTimer.Start();
+                        }
+                        else
+                            Close();
+                    }
+                    else
+                        MessageBox.Show("There was an error with the chart file loaded.", "Chart file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    operations.Add(e);
+                    editAddedLabel.Text = editAddedLabel_text[0];
+                    editAddedLabel.Visible = true;
+                    hideEditAddedTimer.Start();
+                    applyButton.Enabled = true;
+                }
             }
         }
 
