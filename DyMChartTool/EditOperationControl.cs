@@ -36,38 +36,38 @@ namespace DyMChartTool
             if (operation != null)
             {
                 Type op_type = operation.GetType();
-                if (op_type == typeof(MirrorOperation))
-                {
-                    MirrorOperation op = (MirrorOperation)operation;
-                    if (!op.entire_chart)
-                    {
-                        durationEntireChartRadioButton.Checked = false;
-                        durationTimeRangeRadioButton.Checked = true;
-                        timeRangeStartNumericUpDown.Value = Convert.ToDecimal(op.start_time);
-                        timeRangeEndNumericUpDown.Value = Convert.ToDecimal(op.end_time);
-                    }
-                }
-                else if (op_type == typeof(CopyOperation))
+                if (op_type == typeof(CopyOperation))
                 {
                     CopyOperation op = (CopyOperation)operation;
                     tabControl.SelectedIndex = 1;
                     copyRangeStartNumericUpDown.Value = Convert.ToDecimal(op.start_time);
                     copyRangeEndNumericUpDown.Value = Convert.ToDecimal(op.end_time);
-                    copyMainTrackCheckBox.Checked = (op.track_flags & CopyOperation.MainTrackFlag) > 0;
-                    copyLeftTrackCheckBox.Checked = (op.track_flags & CopyOperation.LeftTrackFlag) > 0;
-                    copyRightTrackCheckBox.Checked = (op.track_flags & CopyOperation.RightTrackFlag) > 0;
+                    copyMainTrackCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                    copyLeftTrackCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                    copyRightTrackCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
                     copyDestinationTimeNumericUpDown.Value = Convert.ToDecimal(op.destination_time);
                     copyFromOtherFileRadioButton.Checked = op.source_path != null;
                     otherFileTextBox.Text = op.source_path;
                 }
-                else if (op_type == typeof(ReplaceOperation))
+                else
                 {
-                    ReplaceOperation op = (ReplaceOperation)operation;
-                    tabControl.SelectedIndex = 2;
-                    replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
-                    replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
-                    replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
-                    replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                    if (!operation.entire_chart)
+                    {
+                        durationEntireChartRadioButton.Checked = false;
+                        durationTimeRangeRadioButton.Checked = true;
+                        timeRangeStartNumericUpDown.Value = Convert.ToDecimal(operation.start_time);
+                        timeRangeEndNumericUpDown.Value = Convert.ToDecimal(operation.end_time);
+                    }
+
+                    if (op_type == typeof(ReplaceOperation))
+                    {
+                        ReplaceOperation op = (ReplaceOperation)operation;
+                        tabControl.SelectedIndex = 2;
+                        replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
+                        replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                        replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                        replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                    }
                 }
             }
             #endregion
@@ -134,7 +134,7 @@ namespace DyMChartTool
                                               copyFromOtherFileRadioButton.Checked ? otherFileTextBox.Text : null);
                 OperationMadeEventHandler handler = OperationMade;
                 if (handler != null)
-                    handler(this, this.operation);
+                    handler(this, operation);
             }
             catch (InvalidOperationException)
             {
@@ -157,7 +157,7 @@ namespace DyMChartTool
             otherFileTextBox.Enabled = otherFileBrowseButton.Enabled = copyFromOtherFileRadioButton.Checked;
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl.SelectedIndex != 1)
                 tabControl.SelectedTab.Controls.Add(durationGroupBox);
