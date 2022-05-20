@@ -14,6 +14,8 @@ namespace DyMChartTool
 {
     public partial class EditOperationControl : UserControl
     {
+        private TabPage[] PagesWithApplyTo;
+
         internal ChartOperation operation;
 
         internal event OperationMadeEventHandler OperationMade;
@@ -22,7 +24,8 @@ namespace DyMChartTool
         {
             operation = null;
             InitializeComponent();
-            
+            PagesWithApplyTo = new TabPage[] { mirrorTab, replaceTab, changeTimeTab };
+
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
@@ -159,7 +162,7 @@ namespace DyMChartTool
 
         public void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex != 1)
+            if (PagesWithApplyTo.Contains(tabControl.SelectedTab))
                 tabControl.SelectedTab.Controls.Add(durationGroupBox);
         }
 
@@ -178,6 +181,34 @@ namespace DyMChartTool
         private void durationTimeRangeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             timeRangeStartNumericUpDown.Enabled = timeRangeEndNumericUpDown.Enabled = durationTimeRangeRadioButton.Checked;
+        }
+
+        private void moveNotesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            moveNotesGroupBox.Enabled = moveNotesRadioButton.Checked;
+            stretchNotesGroupBox.Enabled = !moveNotesRadioButton.Checked;
+        }
+
+        private void changeTimeApplyButton_Click(object sender, EventArgs e)
+        {
+            if (moveNotesRadioButton.Checked)
+            {
+                if (durationEntireChartRadioButton.Checked)
+                    operation = new TimeShiftOperation((float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                else
+                    operation = new TimeShiftOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+            }
+            else
+            {
+                if (durationEntireChartRadioButton.Checked)
+                    operation = new TimeScaleOperation((float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                else
+                    operation = new TimeScaleOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+
+            }
+            OperationMadeEventHandler handler = OperationMade;
+            if (handler != null)
+                handler(this, operation);
         }
     }
 }
