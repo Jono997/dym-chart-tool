@@ -81,12 +81,12 @@ namespace DyMChartTool
             this.changeTimeTab = new System.Windows.Forms.TabPage();
             this.changeTimeApplyButton = new System.Windows.Forms.Button();
             this.stretchNotesGroupBox = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.scaleHoldsCheckBox = new System.Windows.Forms.CheckBox();
             this.timeScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.moveNotesGroupBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.moveAmountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.moveDestinationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.moveNotesRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.moveRightCheckBox = new System.Windows.Forms.CheckBox();
@@ -95,7 +95,9 @@ namespace DyMChartTool
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.stretchNotesRadioButton = new System.Windows.Forms.RadioButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.moveDestinationAsStartTimeRadioButton = new System.Windows.Forms.RadioButton();
             this.durationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).BeginInit();
@@ -118,8 +120,9 @@ namespace DyMChartTool
             this.stretchNotesGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).BeginInit();
             this.moveNotesGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.moveAmountNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveDestinationNumericUpDown)).BeginInit();
             this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // durationGroupBox
@@ -775,22 +778,20 @@ namespace DyMChartTool
             this.stretchNotesGroupBox.Controls.Add(this.scaleHoldsCheckBox);
             this.stretchNotesGroupBox.Controls.Add(this.timeScaleNumericUpDown);
             this.stretchNotesGroupBox.Enabled = false;
-            this.stretchNotesGroupBox.Location = new System.Drawing.Point(108, 218);
+            this.stretchNotesGroupBox.Location = new System.Drawing.Point(107, 264);
             this.stretchNotesGroupBox.Name = "stretchNotesGroupBox";
             this.stretchNotesGroupBox.Size = new System.Drawing.Size(651, 49);
             this.stretchNotesGroupBox.TabIndex = 5;
             this.stretchNotesGroupBox.TabStop = false;
             // 
-            // label6
+            // label4
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(408, 26);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Note: The distance is in beats, not seconds.\r\nThe distance between notes will cha" +
-    "nge if they\'re moved into a different BPM section";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Multiplier";
             // 
             // scaleHoldsCheckBox
             // 
@@ -822,12 +823,12 @@ namespace DyMChartTool
             // 
             this.moveNotesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.moveNotesGroupBox.Controls.Add(this.label6);
+            this.moveNotesGroupBox.Controls.Add(this.groupBox9);
             this.moveNotesGroupBox.Controls.Add(this.label3);
-            this.moveNotesGroupBox.Controls.Add(this.moveAmountNumericUpDown);
+            this.moveNotesGroupBox.Controls.Add(this.moveDestinationNumericUpDown);
             this.moveNotesGroupBox.Location = new System.Drawing.Point(108, 120);
             this.moveNotesGroupBox.Name = "moveNotesGroupBox";
-            this.moveNotesGroupBox.Size = new System.Drawing.Size(651, 69);
+            this.moveNotesGroupBox.Size = new System.Drawing.Size(651, 115);
             this.moveNotesGroupBox.TabIndex = 4;
             this.moveNotesGroupBox.TabStop = false;
             // 
@@ -836,32 +837,32 @@ namespace DyMChartTool
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(307, 13);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Distance (put a negative number to move the notes backwards)";
+            this.label3.Text = "Destination time";
             // 
-            // moveAmountNumericUpDown
+            // moveDestinationNumericUpDown
             // 
-            this.moveAmountNumericUpDown.DecimalPlaces = 5;
-            this.moveAmountNumericUpDown.Increment = new decimal(new int[] {
+            this.moveDestinationNumericUpDown.DecimalPlaces = 5;
+            this.moveDestinationNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
             0,
             131072});
-            this.moveAmountNumericUpDown.Location = new System.Drawing.Point(319, 14);
-            this.moveAmountNumericUpDown.Maximum = new decimal(new int[] {
+            this.moveDestinationNumericUpDown.Location = new System.Drawing.Point(94, 14);
+            this.moveDestinationNumericUpDown.Maximum = new decimal(new int[] {
             1410065407,
             2,
             0,
             0});
-            this.moveAmountNumericUpDown.Minimum = new decimal(new int[] {
+            this.moveDestinationNumericUpDown.Minimum = new decimal(new int[] {
             1410065407,
             2,
             0,
             -2147483648});
-            this.moveAmountNumericUpDown.Name = "moveAmountNumericUpDown";
-            this.moveAmountNumericUpDown.Size = new System.Drawing.Size(169, 20);
-            this.moveAmountNumericUpDown.TabIndex = 1;
+            this.moveDestinationNumericUpDown.Name = "moveDestinationNumericUpDown";
+            this.moveDestinationNumericUpDown.Size = new System.Drawing.Size(169, 20);
+            this.moveDestinationNumericUpDown.TabIndex = 1;
             // 
             // moveNotesRadioButton
             // 
@@ -941,7 +942,7 @@ namespace DyMChartTool
             // stretchNotesRadioButton
             // 
             this.stretchNotesRadioButton.AutoSize = true;
-            this.stretchNotesRadioButton.Location = new System.Drawing.Point(108, 195);
+            this.stretchNotesRadioButton.Location = new System.Drawing.Point(107, 241);
             this.stretchNotesRadioButton.Name = "stretchNotesRadioButton";
             this.stretchNotesRadioButton.Size = new System.Drawing.Size(59, 17);
             this.stretchNotesRadioButton.TabIndex = 0;
@@ -952,14 +953,44 @@ namespace DyMChartTool
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label4
+            // groupBox9
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Multiplier";
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.radioButton3);
+            this.groupBox9.Controls.Add(this.moveDestinationAsStartTimeRadioButton);
+            this.groupBox9.Location = new System.Drawing.Point(6, 40);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(374, 70);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Time equivalent to...";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(6, 42);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(68, 17);
+            this.radioButton3.TabIndex = 1;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "First note";
+            this.toolTip.SetToolTip(this.radioButton3, "The first note will be exactly at the destination time");
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // moveDestinationAsStartTimeRadioButton
+            // 
+            this.moveDestinationAsStartTimeRadioButton.AutoSize = true;
+            this.moveDestinationAsStartTimeRadioButton.Location = new System.Drawing.Point(6, 19);
+            this.moveDestinationAsStartTimeRadioButton.Name = "moveDestinationAsStartTimeRadioButton";
+            this.moveDestinationAsStartTimeRadioButton.Size = new System.Drawing.Size(69, 17);
+            this.moveDestinationAsStartTimeRadioButton.TabIndex = 0;
+            this.moveDestinationAsStartTimeRadioButton.Text = "Start time";
+            this.toolTip.SetToolTip(this.moveDestinationAsStartTimeRadioButton, "The first note will be as far from the destination time as it is the source start" +
+        " time");
+            this.moveDestinationAsStartTimeRadioButton.UseVisualStyleBackColor = true;
             // 
             // EditOperationControl
             // 
@@ -1003,9 +1034,11 @@ namespace DyMChartTool
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).EndInit();
             this.moveNotesGroupBox.ResumeLayout(false);
             this.moveNotesGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.moveAmountNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveDestinationNumericUpDown)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1071,12 +1104,14 @@ namespace DyMChartTool
         private System.Windows.Forms.GroupBox stretchNotesGroupBox;
         private System.Windows.Forms.RadioButton stretchNotesRadioButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown moveAmountNumericUpDown;
+        private System.Windows.Forms.NumericUpDown moveDestinationNumericUpDown;
         private System.Windows.Forms.RadioButton moveNotesRadioButton;
         private System.Windows.Forms.Button changeTimeApplyButton;
         private System.Windows.Forms.CheckBox scaleHoldsCheckBox;
         private System.Windows.Forms.NumericUpDown timeScaleNumericUpDown;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton moveDestinationAsStartTimeRadioButton;
     }
 }

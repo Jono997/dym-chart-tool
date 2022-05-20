@@ -194,9 +194,9 @@ namespace DyMChartTool
             if (moveNotesRadioButton.Checked)
             {
                 if (durationEntireChartRadioButton.Checked)
-                    operation = new TimeShiftOperation((float)moveAmountNumericUpDown.Value, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                    operation = new TimeShiftOperation((float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
                 else
-                    operation = new TimeShiftOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)moveAmountNumericUpDown.Value, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                    operation = new TimeShiftOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
             }
             else
             {
