@@ -17,8 +17,6 @@ namespace DyMChartTool.Operations
             setTrackFlags(main, left, right);
         }
 
-        public ReplaceOperation(CMapNoteAsset.Type type) : this(type, true, false, false) { }
-
         public ReplaceOperation(float start_time, float end_time, CMapNoteAsset.Type type, bool main, bool left, bool right)
         {
             entire_chart = false;
@@ -35,9 +33,9 @@ namespace DyMChartTool.Operations
             if ((track_flags & MainTrackFlag) > 0)
                 chart.m_notes = applyOnTrack(chart.m_notes);
             if ((track_flags & LeftTrackFlag) > 0)
-                chart.m_notes = applyOnTrack(chart.m_notesLeft);
+                chart.m_notesLeft = applyOnTrack(chart.m_notesLeft);
             if ((track_flags & RightTrackFlag) > 0)
-                chart.m_notes = applyOnTrack(chart.m_notesRight);
+                chart.m_notesRight = applyOnTrack(chart.m_notesRight);
             return chart;
         }
 

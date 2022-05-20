@@ -16,6 +16,7 @@ namespace DyMChartTool
         private const string vIllegalOperations = "IllegalOperations";
         private const string vSortBy = "SortBy";
         private const string vGroupHoldAndSub = "GroupHoldAndSub";
+        private const string vSingleEditMode = "SingleEditMode";
         #endregion
 
         #region Registry interface
@@ -109,6 +110,21 @@ namespace DyMChartTool
             set
             {
                 setValue(vGroupHoldAndSub, value);
+            }
+        }
+
+        /// <summary>
+        /// If edits are immediately executed upon being added to the queue
+        /// </summary>
+        internal static bool SingleEditMode
+        {
+            get
+            {
+                return getValue(vSingleEditMode, false);
+            }
+            set
+            {
+                setValue(vSingleEditMode, value);
             }
         }
     }
