@@ -46,6 +46,7 @@ namespace DyMChartTool
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearInOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,7 +152,8 @@ namespace DyMChartTool
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.clearInOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -171,6 +173,13 @@ namespace DyMChartTool
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // clearInOutToolStripMenuItem
+            // 
+            this.clearInOutToolStripMenuItem.Name = "clearInOutToolStripMenuItem";
+            this.clearInOutToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.clearInOutToolStripMenuItem.Text = "Clear In/Out/Time";
+            this.clearInOutToolStripMenuItem.Click += new System.EventHandler(this.clearInOutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -218,6 +227,7 @@ namespace DyMChartTool
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearInOutToolStripMenuItem;
     }
 }
 

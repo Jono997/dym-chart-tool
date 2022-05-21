@@ -29,6 +29,7 @@ namespace DyMChartTool
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
+            deleteTab.Controls.Remove(deleteTimePlaceholderGroupBox);
             Update_UI();
         }
 
@@ -79,6 +80,11 @@ namespace DyMChartTool
         public void Update_UI()
         {
             replaceOnLeftCheckBox.Enabled = replaceOnRightCheckBox.Enabled = Settings.IllegalOperations;
+        }
+
+        public void Clear_TimeRange()
+        {
+            timeRangeStartNumericUpDown.Value = timeRangeEndNumericUpDown.Value = copyRangeStartNumericUpDown.Value = copyRangeEndNumericUpDown.Value = copyDestinationTimeNumericUpDown.Value = 0;
         }
 
         private void buildMirrorOperation(MirrorOperation.Operation operation)
@@ -183,6 +189,16 @@ namespace DyMChartTool
             timeRangeStartNumericUpDown.Enabled = timeRangeEndNumericUpDown.Enabled = durationTimeRangeRadioButton.Checked;
         }
 
+        private void deleteApplyButton_Click(object sender, EventArgs e)
+        {
+            if (durationEntireChartRadioButton.Checked)
+                operation = new DeleteOperation(deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
+            else
+                operation = new DeleteOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
+            OperationMadeEventHandler handler = OperationMade;
+            if (handler != null)
+                handler(this, operation);
+        }
         private void moveNotesRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             moveNotesGroupBox.Enabled = moveNotesRadioButton.Checked;

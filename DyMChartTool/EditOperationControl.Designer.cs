@@ -95,6 +95,18 @@ namespace DyMChartTool
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.stretchNotesRadioButton = new System.Windows.Forms.RadioButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.deleteTab = new System.Windows.Forms.TabPage();
+            this.deleteTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteApplyButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.deleteTracksGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteRightTrackCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteLeftTrackCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteMainTrackCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteNormalCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteHoldCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteChainCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.moveDestinationAsStartTimeRadioButton = new System.Windows.Forms.RadioButton();
@@ -116,6 +128,10 @@ namespace DyMChartTool
             this.replaceTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.deleteTab.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.deleteTracksGroupBox.SuspendLayout();
+            this.deleteTypeGroupBox.SuspendLayout();
             this.changeTimeTab.SuspendLayout();
             this.stretchNotesGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).BeginInit();
@@ -336,6 +352,7 @@ namespace DyMChartTool
             this.tabControl.Controls.Add(this.mirrorTab);
             this.tabControl.Controls.Add(this.CopyTab);
             this.tabControl.Controls.Add(this.replaceTab);
+            this.tabControl.Controls.Add(this.deleteTab);
             this.tabControl.Controls.Add(this.changeTimeTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
@@ -953,6 +970,160 @@ namespace DyMChartTool
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // deleteTab
+            // 
+            this.deleteTab.Controls.Add(this.tableLayoutPanel1);
+            this.deleteTab.Controls.Add(this.deleteApplyButton);
+            this.deleteTab.Controls.Add(this.deleteTimePlaceholderGroupBox);
+            this.deleteTab.Location = new System.Drawing.Point(4, 22);
+            this.deleteTab.Name = "deleteTab";
+            this.deleteTab.Size = new System.Drawing.Size(768, 435);
+            this.deleteTab.TabIndex = 3;
+            this.deleteTab.Text = "Delete";
+            this.deleteTab.UseVisualStyleBackColor = true;
+            // 
+            // deleteTimePlaceholderGroupBox
+            // 
+            this.deleteTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.deleteTimePlaceholderGroupBox.Name = "deleteTimePlaceholderGroupBox";
+            this.deleteTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
+            this.deleteTimePlaceholderGroupBox.TabIndex = 2;
+            this.deleteTimePlaceholderGroupBox.TabStop = false;
+            this.deleteTimePlaceholderGroupBox.Text = "Apply to";
+            this.deleteTimePlaceholderGroupBox.Visible = false;
+            // 
+            // deleteApplyButton
+            // 
+            this.deleteApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteApplyButton.Location = new System.Drawing.Point(3, 391);
+            this.deleteApplyButton.Name = "deleteApplyButton";
+            this.deleteApplyButton.Size = new System.Drawing.Size(765, 41);
+            this.deleteApplyButton.TabIndex = 3;
+            this.deleteApplyButton.Text = "Apply";
+            this.deleteApplyButton.UseVisualStyleBackColor = true;
+            this.deleteApplyButton.Click += new System.EventHandler(this.deleteApplyButton_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.deleteTypeGroupBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.deleteTracksGroupBox, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 89);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(756, 296);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // deleteTracksGroupBox
+            // 
+            this.deleteTracksGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteTracksGroupBox.Controls.Add(this.deleteRightTrackCheckBox);
+            this.deleteTracksGroupBox.Controls.Add(this.deleteLeftTrackCheckBox);
+            this.deleteTracksGroupBox.Controls.Add(this.deleteMainTrackCheckBox);
+            this.deleteTracksGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.deleteTracksGroupBox.Name = "deleteTracksGroupBox";
+            this.deleteTracksGroupBox.Size = new System.Drawing.Size(372, 290);
+            this.deleteTracksGroupBox.TabIndex = 0;
+            this.deleteTracksGroupBox.TabStop = false;
+            this.deleteTracksGroupBox.Text = "Tracks";
+            // 
+            // deleteRightTrackCheckBox
+            // 
+            this.deleteRightTrackCheckBox.AutoSize = true;
+            this.deleteRightTrackCheckBox.Checked = true;
+            this.deleteRightTrackCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteRightTrackCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.deleteRightTrackCheckBox.Name = "deleteRightTrackCheckBox";
+            this.deleteRightTrackCheckBox.Size = new System.Drawing.Size(51, 17);
+            this.deleteRightTrackCheckBox.TabIndex = 5;
+            this.deleteRightTrackCheckBox.Text = "Right";
+            this.deleteRightTrackCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteLeftTrackCheckBox
+            // 
+            this.deleteLeftTrackCheckBox.AutoSize = true;
+            this.deleteLeftTrackCheckBox.Checked = true;
+            this.deleteLeftTrackCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteLeftTrackCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.deleteLeftTrackCheckBox.Name = "deleteLeftTrackCheckBox";
+            this.deleteLeftTrackCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.deleteLeftTrackCheckBox.TabIndex = 4;
+            this.deleteLeftTrackCheckBox.Text = "Left";
+            this.deleteLeftTrackCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteMainTrackCheckBox
+            // 
+            this.deleteMainTrackCheckBox.AutoSize = true;
+            this.deleteMainTrackCheckBox.Checked = true;
+            this.deleteMainTrackCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteMainTrackCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.deleteMainTrackCheckBox.Name = "deleteMainTrackCheckBox";
+            this.deleteMainTrackCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.deleteMainTrackCheckBox.TabIndex = 3;
+            this.deleteMainTrackCheckBox.Text = "Main";
+            this.deleteMainTrackCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteTypeGroupBox
+            // 
+            this.deleteTypeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteTypeGroupBox.Controls.Add(this.deleteChainCheckBox);
+            this.deleteTypeGroupBox.Controls.Add(this.deleteHoldCheckBox);
+            this.deleteTypeGroupBox.Controls.Add(this.deleteNormalCheckBox);
+            this.deleteTypeGroupBox.Location = new System.Drawing.Point(381, 3);
+            this.deleteTypeGroupBox.Name = "deleteTypeGroupBox";
+            this.deleteTypeGroupBox.Size = new System.Drawing.Size(372, 290);
+            this.deleteTypeGroupBox.TabIndex = 1;
+            this.deleteTypeGroupBox.TabStop = false;
+            this.deleteTypeGroupBox.Text = "Note types";
+            // 
+            // deleteNormalCheckBox
+            // 
+            this.deleteNormalCheckBox.AutoSize = true;
+            this.deleteNormalCheckBox.Checked = true;
+            this.deleteNormalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteNormalCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.deleteNormalCheckBox.Name = "deleteNormalCheckBox";
+            this.deleteNormalCheckBox.Size = new System.Drawing.Size(59, 17);
+            this.deleteNormalCheckBox.TabIndex = 4;
+            this.deleteNormalCheckBox.Text = "Normal";
+            this.deleteNormalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteHoldCheckBox
+            // 
+            this.deleteHoldCheckBox.AutoSize = true;
+            this.deleteHoldCheckBox.Checked = true;
+            this.deleteHoldCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteHoldCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.deleteHoldCheckBox.Name = "deleteHoldCheckBox";
+            this.deleteHoldCheckBox.Size = new System.Drawing.Size(48, 17);
+            this.deleteHoldCheckBox.TabIndex = 5;
+            this.deleteHoldCheckBox.Text = "Hold";
+            this.deleteHoldCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteChainCheckBox
+            // 
+            this.deleteChainCheckBox.AutoSize = true;
+            this.deleteChainCheckBox.Checked = true;
+            this.deleteChainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteChainCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.deleteChainCheckBox.Name = "deleteChainCheckBox";
+            this.deleteChainCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.deleteChainCheckBox.TabIndex = 6;
+            this.deleteChainCheckBox.Text = "Chain";
+            this.deleteChainCheckBox.UseVisualStyleBackColor = true;
             // groupBox9
             // 
             this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1027,6 +1198,12 @@ namespace DyMChartTool
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.deleteTab.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.deleteTracksGroupBox.ResumeLayout(false);
+            this.deleteTracksGroupBox.PerformLayout();
+            this.deleteTypeGroupBox.ResumeLayout(false);
+            this.deleteTypeGroupBox.PerformLayout();
             this.changeTimeTab.ResumeLayout(false);
             this.changeTimeTab.PerformLayout();
             this.stretchNotesGroupBox.ResumeLayout(false);
@@ -1094,6 +1271,18 @@ namespace DyMChartTool
         private System.Windows.Forms.CheckBox replaceOnLeftCheckBox;
         private System.Windows.Forms.CheckBox replaceOnMainCheckBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage deleteTab;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox deleteTracksGroupBox;
+        private System.Windows.Forms.CheckBox deleteRightTrackCheckBox;
+        private System.Windows.Forms.CheckBox deleteLeftTrackCheckBox;
+        private System.Windows.Forms.CheckBox deleteMainTrackCheckBox;
+        private System.Windows.Forms.GroupBox deleteTypeGroupBox;
+        private System.Windows.Forms.CheckBox deleteChainCheckBox;
+        private System.Windows.Forms.CheckBox deleteHoldCheckBox;
+        private System.Windows.Forms.CheckBox deleteNormalCheckBox;
+        private System.Windows.Forms.Button deleteApplyButton;
+        private System.Windows.Forms.GroupBox deleteTimePlaceholderGroupBox;
         private System.Windows.Forms.TabPage changeTimeTab;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
