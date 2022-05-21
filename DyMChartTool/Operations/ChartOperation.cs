@@ -228,6 +228,16 @@ namespace DyMChartTool.Operations
         {
             return entire_chart ? "Whole chart" : $"{start_time} to {end_time}";
         }
+        private protected void setTrackFlags(bool main, bool left, bool right)
+        {
+            track_flags = 0;
+            if (main)
+                track_flags = (byte)(track_flags | MainTrackFlag);
+            if (left)
+                track_flags = (byte)(track_flags | LeftTrackFlag);
+            if (right)
+                track_flags = (byte)(track_flags | RightTrackFlag);
+        }
     }
 
 

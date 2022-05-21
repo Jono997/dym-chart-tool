@@ -20,6 +20,7 @@ namespace DyMChartTool
             this.operation = null;
             InitializeComponent();
             editOperationControl.Init(operation);
+            editOperationControl.tabControl_SelectedIndexChanged(null, null);
             editOperationControl.OperationMade += EditOperationControl_OperationMade;
         }
 

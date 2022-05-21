@@ -128,9 +128,9 @@ namespace DyMChartTool
             this.editAddedLabel.AutoSize = true;
             this.editAddedLabel.Location = new System.Drawing.Point(13, 469);
             this.editAddedLabel.Name = "editAddedLabel";
-            this.editAddedLabel.Size = new System.Drawing.Size(106, 13);
+            this.editAddedLabel.Size = new System.Drawing.Size(205, 13);
             this.editAddedLabel.TabIndex = 8;
-            this.editAddedLabel.Text = "Edit added to queue!";
+            this.editAddedLabel.Text = "Edit added to queue!|Edit applied to chart!";
             this.editAddedLabel.Visible = false;
             // 
             // hideEditAddedTimer

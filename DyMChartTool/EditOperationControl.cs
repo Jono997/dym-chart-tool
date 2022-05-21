@@ -14,6 +14,8 @@ namespace DyMChartTool
 {
     public partial class EditOperationControl : UserControl
     {
+        private TabPage[] PagesWithApplyTo;
+
         internal ChartOperation operation;
 
         internal event OperationMadeEventHandler OperationMade;
@@ -22,7 +24,8 @@ namespace DyMChartTool
         {
             operation = null;
             InitializeComponent();
-            
+            PagesWithApplyTo = new TabPage[] { mirrorTab, replaceTab, changeTimeTab };
+
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
@@ -37,38 +40,38 @@ namespace DyMChartTool
             if (operation != null)
             {
                 Type op_type = operation.GetType();
-                if (op_type == typeof(MirrorOperation))
-                {
-                    MirrorOperation op = (MirrorOperation)operation;
-                    if (!op.entire_chart)
-                    {
-                        durationEntireChartRadioButton.Checked = false;
-                        durationTimeRangeRadioButton.Checked = true;
-                        timeRangeStartNumericUpDown.Value = Convert.ToDecimal(op.start_time);
-                        timeRangeEndNumericUpDown.Value = Convert.ToDecimal(op.end_time);
-                    }
-                }
-                else if (op_type == typeof(CopyOperation))
+                if (op_type == typeof(CopyOperation))
                 {
                     CopyOperation op = (CopyOperation)operation;
                     tabControl.SelectedIndex = 1;
                     copyRangeStartNumericUpDown.Value = Convert.ToDecimal(op.start_time);
                     copyRangeEndNumericUpDown.Value = Convert.ToDecimal(op.end_time);
-                    copyMainTrackCheckBox.Checked = (op.track_flags & CopyOperation.MainTrackFlag) > 0;
-                    copyLeftTrackCheckBox.Checked = (op.track_flags & CopyOperation.LeftTrackFlag) > 0;
-                    copyRightTrackCheckBox.Checked = (op.track_flags & CopyOperation.RightTrackFlag) > 0;
+                    copyMainTrackCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                    copyLeftTrackCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                    copyRightTrackCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
                     copyDestinationTimeNumericUpDown.Value = Convert.ToDecimal(op.destination_time);
                     copyFromOtherFileRadioButton.Checked = op.source_path != null;
                     otherFileTextBox.Text = op.source_path;
                 }
-                else if (op_type == typeof(ReplaceOperation))
+                else
                 {
-                    ReplaceOperation op = (ReplaceOperation)operation;
-                    tabControl.SelectedIndex = 2;
-                    replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
-                    replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
-                    replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
-                    replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                    if (!operation.entire_chart)
+                    {
+                        durationEntireChartRadioButton.Checked = false;
+                        durationTimeRangeRadioButton.Checked = true;
+                        timeRangeStartNumericUpDown.Value = Convert.ToDecimal(operation.start_time);
+                        timeRangeEndNumericUpDown.Value = Convert.ToDecimal(operation.end_time);
+                    }
+
+                    if (op_type == typeof(ReplaceOperation))
+                    {
+                        ReplaceOperation op = (ReplaceOperation)operation;
+                        tabControl.SelectedIndex = 2;
+                        replaceSlideRadioButton.Checked = op.type == CMapNoteAsset.Type.CHAIN;
+                        replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
+                        replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                        replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                    }
                 }
             }
             #endregion
@@ -140,7 +143,7 @@ namespace DyMChartTool
                                               copyFromOtherFileRadioButton.Checked ? otherFileTextBox.Text : null);
                 OperationMadeEventHandler handler = OperationMade;
                 if (handler != null)
-                    handler(this, this.operation);
+                    handler(this, operation);
             }
             catch (InvalidOperationException)
             {
@@ -163,9 +166,9 @@ namespace DyMChartTool
             otherFileTextBox.Enabled = otherFileBrowseButton.Enabled = copyFromOtherFileRadioButton.Checked;
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex != 1)
+            if (PagesWithApplyTo.Contains(tabControl.SelectedTab))
                 tabControl.SelectedTab.Controls.Add(durationGroupBox);
         }
 
@@ -192,6 +195,33 @@ namespace DyMChartTool
                 operation = new DeleteOperation(deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
             else
                 operation = new DeleteOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, deleteMainTrackCheckBox.Checked, deleteLeftTrackCheckBox.Checked, deleteRightTrackCheckBox.Checked, deleteNormalCheckBox.Checked, deleteHoldCheckBox.Checked, deleteChainCheckBox.Checked);
+            OperationMadeEventHandler handler = OperationMade;
+            if (handler != null)
+                handler(this, operation);
+        }
+        private void moveNotesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            moveNotesGroupBox.Enabled = moveNotesRadioButton.Checked;
+            stretchNotesGroupBox.Enabled = !moveNotesRadioButton.Checked;
+        }
+
+        private void changeTimeApplyButton_Click(object sender, EventArgs e)
+        {
+            if (moveNotesRadioButton.Checked)
+            {
+                if (durationEntireChartRadioButton.Checked)
+                    operation = new TimeShiftOperation((float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                else
+                    operation = new TimeShiftOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)moveDestinationNumericUpDown.Value, moveDestinationAsStartTimeRadioButton.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+            }
+            else
+            {
+                if (durationEntireChartRadioButton.Checked)
+                    operation = new TimeScaleOperation((float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+                else
+                    operation = new TimeScaleOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
+
+            }
             OperationMadeEventHandler handler = OperationMade;
             if (handler != null)
                 handler(this, operation);
