@@ -45,6 +45,8 @@ namespace DyMChartTool
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.copyFromOtherFileRadioButton = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.moveDestinationAsStartTimeRadioButton = new System.Windows.Forms.RadioButton();
             this.applyReplaceButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.mirrorTab = new System.Windows.Forms.TabPage();
@@ -85,6 +87,7 @@ namespace DyMChartTool
             this.scaleHoldsCheckBox = new System.Windows.Forms.CheckBox();
             this.timeScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.moveNotesGroupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.moveDestinationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.moveNotesRadioButton = new System.Windows.Forms.RadioButton();
@@ -92,24 +95,21 @@ namespace DyMChartTool
             this.moveRightCheckBox = new System.Windows.Forms.CheckBox();
             this.moveLeftCheckBox = new System.Windows.Forms.CheckBox();
             this.moveMainCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.changeTimeTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
             this.stretchNotesRadioButton = new System.Windows.Forms.RadioButton();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.deleteTab = new System.Windows.Forms.TabPage();
-            this.deleteTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
-            this.deleteApplyButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.deleteTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteChainCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteHoldCheckBox = new System.Windows.Forms.CheckBox();
+            this.deleteNormalCheckBox = new System.Windows.Forms.CheckBox();
             this.deleteTracksGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteRightTrackCheckBox = new System.Windows.Forms.CheckBox();
             this.deleteLeftTrackCheckBox = new System.Windows.Forms.CheckBox();
             this.deleteMainTrackCheckBox = new System.Windows.Forms.CheckBox();
-            this.deleteTypeGroupBox = new System.Windows.Forms.GroupBox();
-            this.deleteNormalCheckBox = new System.Windows.Forms.CheckBox();
-            this.deleteHoldCheckBox = new System.Windows.Forms.CheckBox();
-            this.deleteChainCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.moveDestinationAsStartTimeRadioButton = new System.Windows.Forms.RadioButton();
+            this.deleteApplyButton = new System.Windows.Forms.Button();
+            this.deleteTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.durationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).BeginInit();
@@ -128,17 +128,17 @@ namespace DyMChartTool
             this.replaceTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.deleteTab.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.deleteTracksGroupBox.SuspendLayout();
-            this.deleteTypeGroupBox.SuspendLayout();
             this.changeTimeTab.SuspendLayout();
             this.stretchNotesGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).BeginInit();
             this.moveNotesGroupBox.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDestinationNumericUpDown)).BeginInit();
             this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.deleteTab.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.deleteTypeGroupBox.SuspendLayout();
+            this.deleteTracksGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // durationGroupBox
@@ -335,6 +335,32 @@ namespace DyMChartTool
             this.copyFromOtherFileRadioButton.UseVisualStyleBackColor = true;
             this.copyFromOtherFileRadioButton.CheckedChanged += new System.EventHandler(this.copyFromOtherFileRadioButton_CheckedChanged);
             // 
+            // radioButton3
+            // 
+            this.radioButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(6, 42);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(68, 17);
+            this.radioButton3.TabIndex = 1;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "First note";
+            this.toolTip.SetToolTip(this.radioButton3, "The first note will be exactly at the destination time");
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // moveDestinationAsStartTimeRadioButton
+            // 
+            this.moveDestinationAsStartTimeRadioButton.AutoSize = true;
+            this.moveDestinationAsStartTimeRadioButton.Location = new System.Drawing.Point(6, 19);
+            this.moveDestinationAsStartTimeRadioButton.Name = "moveDestinationAsStartTimeRadioButton";
+            this.moveDestinationAsStartTimeRadioButton.Size = new System.Drawing.Size(69, 17);
+            this.moveDestinationAsStartTimeRadioButton.TabIndex = 0;
+            this.moveDestinationAsStartTimeRadioButton.Text = "Start time";
+            this.toolTip.SetToolTip(this.moveDestinationAsStartTimeRadioButton, "The first note will be as far from the destination time as it is the source start" +
+        " time");
+            this.moveDestinationAsStartTimeRadioButton.UseVisualStyleBackColor = true;
+            // 
             // applyReplaceButton
             // 
             this.applyReplaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -352,8 +378,8 @@ namespace DyMChartTool
             this.tabControl.Controls.Add(this.mirrorTab);
             this.tabControl.Controls.Add(this.CopyTab);
             this.tabControl.Controls.Add(this.replaceTab);
-            this.tabControl.Controls.Add(this.deleteTab);
             this.tabControl.Controls.Add(this.changeTimeTab);
+            this.tabControl.Controls.Add(this.deleteTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -766,7 +792,7 @@ namespace DyMChartTool
             this.changeTimeTab.Controls.Add(this.moveNotesGroupBox);
             this.changeTimeTab.Controls.Add(this.moveNotesRadioButton);
             this.changeTimeTab.Controls.Add(this.groupBox8);
-            this.changeTimeTab.Controls.Add(this.groupBox7);
+            this.changeTimeTab.Controls.Add(this.changeTimeTimePlaceholderGroupBox);
             this.changeTimeTab.Controls.Add(this.stretchNotesRadioButton);
             this.changeTimeTab.Location = new System.Drawing.Point(4, 22);
             this.changeTimeTab.Name = "changeTimeTab";
@@ -849,6 +875,19 @@ namespace DyMChartTool
             this.moveNotesGroupBox.TabIndex = 4;
             this.moveNotesGroupBox.TabStop = false;
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.radioButton3);
+            this.groupBox9.Controls.Add(this.moveDestinationAsStartTimeRadioButton);
+            this.groupBox9.Location = new System.Drawing.Point(6, 40);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(374, 70);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Time equivalent to...";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -911,7 +950,6 @@ namespace DyMChartTool
             this.moveRightCheckBox.AutoSize = true;
             this.moveRightCheckBox.Checked = true;
             this.moveRightCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.moveRightCheckBox.Enabled = false;
             this.moveRightCheckBox.Location = new System.Drawing.Point(6, 65);
             this.moveRightCheckBox.Name = "moveRightCheckBox";
             this.moveRightCheckBox.Size = new System.Drawing.Size(51, 17);
@@ -924,7 +962,6 @@ namespace DyMChartTool
             this.moveLeftCheckBox.AutoSize = true;
             this.moveLeftCheckBox.Checked = true;
             this.moveLeftCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.moveLeftCheckBox.Enabled = false;
             this.moveLeftCheckBox.Location = new System.Drawing.Point(6, 42);
             this.moveLeftCheckBox.Name = "moveLeftCheckBox";
             this.moveLeftCheckBox.Size = new System.Drawing.Size(44, 17);
@@ -944,17 +981,17 @@ namespace DyMChartTool
             this.moveMainCheckBox.Text = "Main";
             this.moveMainCheckBox.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // changeTimeTimePlaceholderGroupBox
             // 
-            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.changeTimeTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox7.Location = new System.Drawing.Point(3, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(756, 80);
-            this.groupBox7.TabIndex = 2;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Apply to";
-            this.groupBox7.Visible = false;
+            this.changeTimeTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.changeTimeTimePlaceholderGroupBox.Name = "changeTimeTimePlaceholderGroupBox";
+            this.changeTimeTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
+            this.changeTimeTimePlaceholderGroupBox.TabIndex = 2;
+            this.changeTimeTimePlaceholderGroupBox.TabStop = false;
+            this.changeTimeTimePlaceholderGroupBox.Text = "Apply to";
+            this.changeTimeTimePlaceholderGroupBox.Visible = false;
             // 
             // stretchNotesRadioButton
             // 
@@ -965,10 +1002,6 @@ namespace DyMChartTool
             this.stretchNotesRadioButton.TabIndex = 0;
             this.stretchNotesRadioButton.Text = "Stretch";
             this.stretchNotesRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // deleteTab
             // 
@@ -981,30 +1014,6 @@ namespace DyMChartTool
             this.deleteTab.TabIndex = 3;
             this.deleteTab.Text = "Delete";
             this.deleteTab.UseVisualStyleBackColor = true;
-            // 
-            // deleteTimePlaceholderGroupBox
-            // 
-            this.deleteTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.deleteTimePlaceholderGroupBox.Name = "deleteTimePlaceholderGroupBox";
-            this.deleteTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
-            this.deleteTimePlaceholderGroupBox.TabIndex = 2;
-            this.deleteTimePlaceholderGroupBox.TabStop = false;
-            this.deleteTimePlaceholderGroupBox.Text = "Apply to";
-            this.deleteTimePlaceholderGroupBox.Visible = false;
-            // 
-            // deleteApplyButton
-            // 
-            this.deleteApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteApplyButton.Location = new System.Drawing.Point(3, 391);
-            this.deleteApplyButton.Name = "deleteApplyButton";
-            this.deleteApplyButton.Size = new System.Drawing.Size(765, 41);
-            this.deleteApplyButton.TabIndex = 3;
-            this.deleteApplyButton.Text = "Apply";
-            this.deleteApplyButton.UseVisualStyleBackColor = true;
-            this.deleteApplyButton.Click += new System.EventHandler(this.deleteApplyButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -1022,6 +1031,57 @@ namespace DyMChartTool
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(756, 296);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // deleteTypeGroupBox
+            // 
+            this.deleteTypeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteTypeGroupBox.Controls.Add(this.deleteChainCheckBox);
+            this.deleteTypeGroupBox.Controls.Add(this.deleteHoldCheckBox);
+            this.deleteTypeGroupBox.Controls.Add(this.deleteNormalCheckBox);
+            this.deleteTypeGroupBox.Location = new System.Drawing.Point(381, 3);
+            this.deleteTypeGroupBox.Name = "deleteTypeGroupBox";
+            this.deleteTypeGroupBox.Size = new System.Drawing.Size(372, 290);
+            this.deleteTypeGroupBox.TabIndex = 1;
+            this.deleteTypeGroupBox.TabStop = false;
+            this.deleteTypeGroupBox.Text = "Note types";
+            // 
+            // deleteChainCheckBox
+            // 
+            this.deleteChainCheckBox.AutoSize = true;
+            this.deleteChainCheckBox.Checked = true;
+            this.deleteChainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteChainCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.deleteChainCheckBox.Name = "deleteChainCheckBox";
+            this.deleteChainCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.deleteChainCheckBox.TabIndex = 6;
+            this.deleteChainCheckBox.Text = "Chain";
+            this.deleteChainCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteHoldCheckBox
+            // 
+            this.deleteHoldCheckBox.AutoSize = true;
+            this.deleteHoldCheckBox.Checked = true;
+            this.deleteHoldCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteHoldCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.deleteHoldCheckBox.Name = "deleteHoldCheckBox";
+            this.deleteHoldCheckBox.Size = new System.Drawing.Size(48, 17);
+            this.deleteHoldCheckBox.TabIndex = 5;
+            this.deleteHoldCheckBox.Text = "Hold";
+            this.deleteHoldCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // deleteNormalCheckBox
+            // 
+            this.deleteNormalCheckBox.AutoSize = true;
+            this.deleteNormalCheckBox.Checked = true;
+            this.deleteNormalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteNormalCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.deleteNormalCheckBox.Name = "deleteNormalCheckBox";
+            this.deleteNormalCheckBox.Size = new System.Drawing.Size(59, 17);
+            this.deleteNormalCheckBox.TabIndex = 4;
+            this.deleteNormalCheckBox.Text = "Normal";
+            this.deleteNormalCheckBox.UseVisualStyleBackColor = true;
             // 
             // deleteTracksGroupBox
             // 
@@ -1074,94 +1134,33 @@ namespace DyMChartTool
             this.deleteMainTrackCheckBox.Text = "Main";
             this.deleteMainTrackCheckBox.UseVisualStyleBackColor = true;
             // 
-            // deleteTypeGroupBox
+            // deleteApplyButton
             // 
-            this.deleteTypeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.deleteApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteTypeGroupBox.Controls.Add(this.deleteChainCheckBox);
-            this.deleteTypeGroupBox.Controls.Add(this.deleteHoldCheckBox);
-            this.deleteTypeGroupBox.Controls.Add(this.deleteNormalCheckBox);
-            this.deleteTypeGroupBox.Location = new System.Drawing.Point(381, 3);
-            this.deleteTypeGroupBox.Name = "deleteTypeGroupBox";
-            this.deleteTypeGroupBox.Size = new System.Drawing.Size(372, 290);
-            this.deleteTypeGroupBox.TabIndex = 1;
-            this.deleteTypeGroupBox.TabStop = false;
-            this.deleteTypeGroupBox.Text = "Note types";
+            this.deleteApplyButton.Location = new System.Drawing.Point(3, 391);
+            this.deleteApplyButton.Name = "deleteApplyButton";
+            this.deleteApplyButton.Size = new System.Drawing.Size(765, 41);
+            this.deleteApplyButton.TabIndex = 3;
+            this.deleteApplyButton.Text = "Apply";
+            this.deleteApplyButton.UseVisualStyleBackColor = true;
+            this.deleteApplyButton.Click += new System.EventHandler(this.deleteApplyButton_Click);
             // 
-            // deleteNormalCheckBox
+            // deleteTimePlaceholderGroupBox
             // 
-            this.deleteNormalCheckBox.AutoSize = true;
-            this.deleteNormalCheckBox.Checked = true;
-            this.deleteNormalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteNormalCheckBox.Location = new System.Drawing.Point(6, 19);
-            this.deleteNormalCheckBox.Name = "deleteNormalCheckBox";
-            this.deleteNormalCheckBox.Size = new System.Drawing.Size(59, 17);
-            this.deleteNormalCheckBox.TabIndex = 4;
-            this.deleteNormalCheckBox.Text = "Normal";
-            this.deleteNormalCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // deleteHoldCheckBox
-            // 
-            this.deleteHoldCheckBox.AutoSize = true;
-            this.deleteHoldCheckBox.Checked = true;
-            this.deleteHoldCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteHoldCheckBox.Location = new System.Drawing.Point(6, 42);
-            this.deleteHoldCheckBox.Name = "deleteHoldCheckBox";
-            this.deleteHoldCheckBox.Size = new System.Drawing.Size(48, 17);
-            this.deleteHoldCheckBox.TabIndex = 5;
-            this.deleteHoldCheckBox.Text = "Hold";
-            this.deleteHoldCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // deleteChainCheckBox
-            // 
-            this.deleteChainCheckBox.AutoSize = true;
-            this.deleteChainCheckBox.Checked = true;
-            this.deleteChainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.deleteChainCheckBox.Location = new System.Drawing.Point(6, 65);
-            this.deleteChainCheckBox.Name = "deleteChainCheckBox";
-            this.deleteChainCheckBox.Size = new System.Drawing.Size(53, 17);
-            this.deleteChainCheckBox.TabIndex = 6;
-            this.deleteChainCheckBox.Text = "Chain";
-            this.deleteChainCheckBox.UseVisualStyleBackColor = true;
-            // groupBox9
-            // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.deleteTimePlaceholderGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox9.Controls.Add(this.radioButton3);
-            this.groupBox9.Controls.Add(this.moveDestinationAsStartTimeRadioButton);
-            this.groupBox9.Location = new System.Drawing.Point(6, 40);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(374, 70);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Time equivalent to...";
+            this.deleteTimePlaceholderGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.deleteTimePlaceholderGroupBox.Name = "deleteTimePlaceholderGroupBox";
+            this.deleteTimePlaceholderGroupBox.Size = new System.Drawing.Size(756, 80);
+            this.deleteTimePlaceholderGroupBox.TabIndex = 2;
+            this.deleteTimePlaceholderGroupBox.TabStop = false;
+            this.deleteTimePlaceholderGroupBox.Text = "Apply to";
+            this.deleteTimePlaceholderGroupBox.Visible = false;
             // 
-            // radioButton3
+            // openFileDialog1
             // 
-            this.radioButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 42);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(68, 17);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "First note";
-            this.toolTip.SetToolTip(this.radioButton3, "The first note will be exactly at the destination time");
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // moveDestinationAsStartTimeRadioButton
-            // 
-            this.moveDestinationAsStartTimeRadioButton.AutoSize = true;
-            this.moveDestinationAsStartTimeRadioButton.Location = new System.Drawing.Point(6, 19);
-            this.moveDestinationAsStartTimeRadioButton.Name = "moveDestinationAsStartTimeRadioButton";
-            this.moveDestinationAsStartTimeRadioButton.Size = new System.Drawing.Size(69, 17);
-            this.moveDestinationAsStartTimeRadioButton.TabIndex = 0;
-            this.moveDestinationAsStartTimeRadioButton.Text = "Start time";
-            this.toolTip.SetToolTip(this.moveDestinationAsStartTimeRadioButton, "The first note will be as far from the destination time as it is the source start" +
-        " time");
-            this.moveDestinationAsStartTimeRadioButton.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // EditOperationControl
             // 
@@ -1198,12 +1197,6 @@ namespace DyMChartTool
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.deleteTab.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.deleteTracksGroupBox.ResumeLayout(false);
-            this.deleteTracksGroupBox.PerformLayout();
-            this.deleteTypeGroupBox.ResumeLayout(false);
-            this.deleteTypeGroupBox.PerformLayout();
             this.changeTimeTab.ResumeLayout(false);
             this.changeTimeTab.PerformLayout();
             this.stretchNotesGroupBox.ResumeLayout(false);
@@ -1211,11 +1204,17 @@ namespace DyMChartTool
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).EndInit();
             this.moveNotesGroupBox.ResumeLayout(false);
             this.moveNotesGroupBox.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDestinationNumericUpDown)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.deleteTab.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.deleteTypeGroupBox.ResumeLayout(false);
+            this.deleteTypeGroupBox.PerformLayout();
+            this.deleteTracksGroupBox.ResumeLayout(false);
+            this.deleteTracksGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1284,7 +1283,7 @@ namespace DyMChartTool
         private System.Windows.Forms.Button deleteApplyButton;
         private System.Windows.Forms.GroupBox deleteTimePlaceholderGroupBox;
         private System.Windows.Forms.TabPage changeTimeTab;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox changeTimeTimePlaceholderGroupBox;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.CheckBox moveRightCheckBox;
         private System.Windows.Forms.CheckBox moveLeftCheckBox;

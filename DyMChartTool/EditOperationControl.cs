@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,11 +23,12 @@ namespace DyMChartTool
         {
             operation = null;
             InitializeComponent();
-            PagesWithApplyTo = new TabPage[] { mirrorTab, replaceTab, changeTimeTab };
+            PagesWithApplyTo = new TabPage[] { mirrorTab, replaceTab, changeTimeTab, deleteTab };
 
             // Setup UI
             EditOperationControl_Resize(null, null);
             replaceTab.Controls.Remove(ReplaceTimePlaceholderGroupBox);
+            changeTimeTab.Controls.Remove(changeTimeTimePlaceholderGroupBox);
             deleteTab.Controls.Remove(deleteTimePlaceholderGroupBox);
             Update_UI();
         }
@@ -71,6 +71,38 @@ namespace DyMChartTool
                         replaceOnMainCheckBox.Checked = (op.track_flags & ChartOperation.MainTrackFlag) > 0;
                         replaceOnLeftCheckBox.Checked = (op.track_flags & ChartOperation.LeftTrackFlag) > 0;
                         replaceOnRightCheckBox.Checked = (op.track_flags & ChartOperation.RightTrackFlag) > 0;
+                    }
+                    else if (op_type == typeof(TimeShiftOperation) || op_type == typeof(TimeScaleOperation))
+                    {
+                        tabControl.SelectedIndex = 3;
+                        moveMainCheckBox.Checked = (operation.track_flags & ChartOperation.MainTrackFlag) > 0;
+                        moveLeftCheckBox.Checked = (operation.track_flags & ChartOperation.LeftTrackFlag) > 0;
+                        moveRightCheckBox.Checked = (operation.track_flags & ChartOperation.RightTrackFlag) > 0;
+
+                        if (op_type == typeof(TimeShiftOperation))
+                        {
+                            TimeShiftOperation op = (TimeShiftOperation)operation;
+                            moveDestinationNumericUpDown.Value = Convert.ToDecimal(op.destination_time);
+                            if (op.start_from_start)
+                                moveDestinationAsStartTimeRadioButton.Checked = true;
+                        }
+                        else
+                        {
+                            TimeScaleOperation op = (TimeScaleOperation)operation;
+                            timeScaleNumericUpDown.Value = Convert.ToDecimal(op.scale);
+                            scaleHoldsCheckBox.Checked = op.scale_hold_lengths;
+                        }
+                    }
+                    else if (op_type == typeof(DeleteOperation))
+                    {
+                        DeleteOperation op = (DeleteOperation)operation;
+                        tabControl.SelectedIndex = 4;
+                        deleteMainTrackCheckBox.Checked = op.main;
+                        deleteLeftTrackCheckBox.Checked = op.left;
+                        deleteRightTrackCheckBox.Checked = op.right;
+                        deleteNormalCheckBox.Checked = op.normal;
+                        deleteHoldCheckBox.Checked = op.hold;
+                        deleteChainCheckBox.Checked = op.chain;
                     }
                 }
             }

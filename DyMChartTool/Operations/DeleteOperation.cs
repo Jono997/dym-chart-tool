@@ -8,12 +8,12 @@ namespace DyMChartTool.Operations
 {
     class DeleteOperation : ChartOperation
     {
-        private bool main;
-        private bool left;
-        private bool right;
-        private bool normal;
-        private bool hold;
-        private bool chain;
+        public bool main;
+        public bool left;
+        public bool right;
+        public bool normal;
+        public bool hold;
+        public bool chain;
 
         public DeleteOperation(bool main, bool left, bool right, bool normal, bool hold, bool chain)
         {
