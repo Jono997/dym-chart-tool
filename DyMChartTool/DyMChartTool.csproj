@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplyRange.cs" />
+    <Compile Include="ApplyRangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplyRangeControl.Designer.cs">
+      <DependentUpon>ApplyRangeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operations\ChartOperation.cs" />
     <Compile Include="EditOperationForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +105,9 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApplyRangeControl.resx">
+      <DependentUpon>ApplyRangeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditOperationControl.resx">
       <DependentUpon>EditOperationControl.cs</DependentUpon>
     </EmbeddedResource>
