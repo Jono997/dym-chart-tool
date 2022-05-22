@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyRange.cs" />
     <Compile Include="Operations\ChartOperation.cs" />
     <Compile Include="EditOperationForm.cs">
       <SubType>Form</SubType>
