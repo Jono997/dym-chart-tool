@@ -52,9 +52,10 @@ namespace DyMChartTool.Operations
 
         private NoteCollection delete(NoteCollection m_notes)
         {
-            List<int> apply_range = getApplyRange(m_notes);
+            int[] apply_range = getApplyRange(m_notes).ToArray();
+            Array.Sort(apply_range);
             List<CMapNoteAsset> notes = m_notes.m_notes.ToList();
-            for (int _i = apply_range.Count - 1; _i >= 0; _i--)
+            for (int _i = apply_range.Length - 1; _i >= 0; _i--)
             {
                 int i = apply_range[_i];
                 CMapNoteAsset note = notes[i];
