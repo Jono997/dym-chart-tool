@@ -258,5 +258,11 @@ namespace DyMChartTool
             if (handler != null)
                 handler(this, operation);
         }
+
+        private void stretchNotesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            moveNotesGroupBox.Enabled = !stretchNotesRadioButton.Checked;
+            stretchNotesGroupBox.Enabled = stretchNotesRadioButton.Checked;
+        }
     }
 }

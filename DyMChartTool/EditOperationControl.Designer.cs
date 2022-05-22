@@ -851,7 +851,6 @@ namespace DyMChartTool
             // timeScaleNumericUpDown
             // 
             this.timeScaleNumericUpDown.DecimalPlaces = 2;
-            this.timeScaleNumericUpDown.Enabled = false;
             this.timeScaleNumericUpDown.Location = new System.Drawing.Point(60, 19);
             this.timeScaleNumericUpDown.Name = "timeScaleNumericUpDown";
             this.timeScaleNumericUpDown.Size = new System.Drawing.Size(49, 20);
@@ -1002,6 +1001,7 @@ namespace DyMChartTool
             this.stretchNotesRadioButton.TabIndex = 0;
             this.stretchNotesRadioButton.Text = "Stretch";
             this.stretchNotesRadioButton.UseVisualStyleBackColor = true;
+            this.stretchNotesRadioButton.CheckedChanged += new System.EventHandler(this.stretchNotesRadioButton_CheckedChanged);
             // 
             // deleteTab
             // 
