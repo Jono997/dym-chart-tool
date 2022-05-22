@@ -44,6 +44,7 @@ namespace DyMChartTool.Operations
                 chart.m_notesLeft = scaleNotes(chart.m_notesLeft);
             if ((track_flags & RightTrackFlag) > 0)
                 chart.m_notesRight = scaleNotes(chart.m_notesRight);
+            chart.m_barPerMin *= scale;
             return chart;
         }
 

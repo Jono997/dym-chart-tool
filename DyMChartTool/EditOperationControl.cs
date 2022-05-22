@@ -155,6 +155,14 @@ namespace DyMChartTool
         private void durationEntireChartRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             swapSidesButton.Enabled = true;// durationEntireChartRadioButton.Checked;
+            if (durationEntireChartRadioButton.Checked)
+            {
+                stretchNotesRadioButton.Enabled = true;
+            }
+            else
+            {
+                stretchNotesRadioButton.Checked = stretchNotesRadioButton.Enabled = false;
+            }
         }
 
         private void EditOperationControl_Resize(object sender, EventArgs e)
@@ -248,11 +256,8 @@ namespace DyMChartTool
             }
             else
             {
-                if (durationEntireChartRadioButton.Checked)
-                    operation = new TimeScaleOperation((float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
-                else
-                    operation = new TimeScaleOperation((float)timeRangeStartNumericUpDown.Value, (float)timeRangeEndNumericUpDown.Value, (float)timeScaleNumericUpDown.Value, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
-
+                float multiplier = stretchMultiplierRadioButton.Checked ? (float)timeScaleNumericUpDown.Value : (float)timeScaleNewBPMNumericUpDown.Value / (float)timeScaleOldBPMNumericUpDown.Value;
+                operation = new TimeScaleOperation(multiplier, scaleHoldsCheckBox.Checked, moveMainCheckBox.Checked, moveLeftCheckBox.Checked, moveRightCheckBox.Checked);
             }
             OperationMadeEventHandler handler = OperationMade;
             if (handler != null)
