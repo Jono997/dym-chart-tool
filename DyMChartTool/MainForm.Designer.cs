@@ -47,6 +47,7 @@ namespace DyMChartTool
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearInOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aRCTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +154,8 @@ namespace DyMChartTool
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.clearInOutToolStripMenuItem});
+            this.clearInOutToolStripMenuItem,
+            this.aRCTestToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -180,6 +182,13 @@ namespace DyMChartTool
             this.clearInOutToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.clearInOutToolStripMenuItem.Text = "Clear In/Out/Time";
             this.clearInOutToolStripMenuItem.Click += new System.EventHandler(this.clearInOutToolStripMenuItem_Click);
+            // 
+            // aRCTestToolStripMenuItem
+            // 
+            this.aRCTestToolStripMenuItem.Name = "aRCTestToolStripMenuItem";
+            this.aRCTestToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.aRCTestToolStripMenuItem.Text = "ARC test";
+            this.aRCTestToolStripMenuItem.Click += new System.EventHandler(this.aRCTestToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -228,6 +237,7 @@ namespace DyMChartTool
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearInOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aRCTestToolStripMenuItem;
     }
 }
 

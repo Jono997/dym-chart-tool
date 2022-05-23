@@ -23,11 +23,17 @@ namespace DyMChartTool
         public bool ChainNotes;
         public bool HoldNotes;
 
-        public ApplyRange GetDefault()
+        public static ApplyRange GetDefault()
         {
             return new ApplyRange()
             {
-                EntireChart = MainTrack = LeftTrack = RightTrack = NormalNotes = ChainNotes = HoldNotes = true
+                EntireChart = true,
+                MainTrack = true,
+                LeftTrack = true,
+                RightTrack = true,
+                NormalNotes = true,
+                ChainNotes = true,
+                HoldNotes = true
             };
         }
     }

@@ -197,5 +197,10 @@ namespace DyMChartTool
             fileInTextBox.Text = fileOutTextBox.Text = "";
             editOperation.Clear_TimeRange();
         }
+
+        private void aRCTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ARCTest().ShowDialog();
+        }
     }
 }

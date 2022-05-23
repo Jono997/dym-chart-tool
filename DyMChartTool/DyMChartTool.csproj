@@ -56,6 +56,12 @@
     <Compile Include="ApplyRangeControl.Designer.cs">
       <DependentUpon>ApplyRangeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ARCTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ARCTest.Designer.cs">
+      <DependentUpon>ARCTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operations\ChartOperation.cs" />
     <Compile Include="EditOperationForm.cs">
       <SubType>Form</SubType>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="ApplyRangeControl.resx">
       <DependentUpon>ApplyRangeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ARCTest.resx">
+      <DependentUpon>ARCTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditOperationControl.resx">
       <DependentUpon>EditOperationControl.cs</DependentUpon>
