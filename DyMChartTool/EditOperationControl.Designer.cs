@@ -47,6 +47,8 @@ namespace DyMChartTool
             this.copyFromOtherFileRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.moveDestinationAsStartTimeRadioButton = new System.Windows.Forms.RadioButton();
+            this.stretchMultiplierRadioButton = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.applyReplaceButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.mirrorTab = new System.Windows.Forms.TabPage();
@@ -83,6 +85,9 @@ namespace DyMChartTool
             this.changeTimeTab = new System.Windows.Forms.TabPage();
             this.changeTimeApplyButton = new System.Windows.Forms.Button();
             this.stretchNotesGroupBox = new System.Windows.Forms.GroupBox();
+            this.timeScaleNewBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.timeScaleOldBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.scaleHoldsCheckBox = new System.Windows.Forms.CheckBox();
             this.timeScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.moveNotesGroupBox = new System.Windows.Forms.GroupBox();
@@ -109,11 +114,6 @@ namespace DyMChartTool
             this.deleteApplyButton = new System.Windows.Forms.Button();
             this.deleteTimePlaceholderGroupBox = new System.Windows.Forms.GroupBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.stretchMultiplierRadioButton = new System.Windows.Forms.RadioButton();
-            this.timeScaleOldBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.timeScaleNewBPMNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.durationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeEndNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeRangeStartNumericUpDown)).BeginInit();
@@ -134,6 +134,8 @@ namespace DyMChartTool
             this.groupBox5.SuspendLayout();
             this.changeTimeTab.SuspendLayout();
             this.stretchNotesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeScaleNewBPMNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeScaleOldBPMNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).BeginInit();
             this.moveNotesGroupBox.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -143,8 +145,6 @@ namespace DyMChartTool
             this.tableLayoutPanel1.SuspendLayout();
             this.deleteTypeGroupBox.SuspendLayout();
             this.deleteTracksGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeScaleOldBPMNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeScaleNewBPMNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // durationGroupBox
@@ -367,6 +367,30 @@ namespace DyMChartTool
         " time");
             this.moveDestinationAsStartTimeRadioButton.UseVisualStyleBackColor = true;
             // 
+            // stretchMultiplierRadioButton
+            // 
+            this.stretchMultiplierRadioButton.AutoSize = true;
+            this.stretchMultiplierRadioButton.Checked = true;
+            this.stretchMultiplierRadioButton.Location = new System.Drawing.Point(10, 19);
+            this.stretchMultiplierRadioButton.Name = "stretchMultiplierRadioButton";
+            this.stretchMultiplierRadioButton.Size = new System.Drawing.Size(66, 17);
+            this.stretchMultiplierRadioButton.TabIndex = 10;
+            this.stretchMultiplierRadioButton.TabStop = true;
+            this.stretchMultiplierRadioButton.Text = "Multiplier";
+            this.toolTip.SetToolTip(this.stretchMultiplierRadioButton, "The first note will be exactly at the destination time");
+            this.stretchMultiplierRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(10, 45);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(48, 17);
+            this.radioButton5.TabIndex = 12;
+            this.radioButton5.Text = "BPM";
+            this.toolTip.SetToolTip(this.radioButton5, "The first note will be exactly at the destination time");
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
             // applyReplaceButton
             // 
             this.applyReplaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -464,7 +488,7 @@ namespace DyMChartTool
             // copyDestinationTimeNumericUpDown
             // 
             this.copyDestinationTimeNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyDestinationTimeNumericUpDown.DecimalPlaces = 5;
+            this.copyDestinationTimeNumericUpDown.DecimalPlaces = 10;
             this.copyDestinationTimeNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
@@ -837,6 +861,51 @@ namespace DyMChartTool
             this.stretchNotesGroupBox.TabIndex = 5;
             this.stretchNotesGroupBox.TabStop = false;
             // 
+            // timeScaleNewBPMNumericUpDown
+            // 
+            this.timeScaleNewBPMNumericUpDown.DecimalPlaces = 2;
+            this.timeScaleNewBPMNumericUpDown.Location = new System.Drawing.Point(168, 45);
+            this.timeScaleNewBPMNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.timeScaleNewBPMNumericUpDown.Name = "timeScaleNewBPMNumericUpDown";
+            this.timeScaleNewBPMNumericUpDown.Size = new System.Drawing.Size(58, 20);
+            this.timeScaleNewBPMNumericUpDown.TabIndex = 14;
+            this.timeScaleNewBPMNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(146, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(16, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "->";
+            // 
+            // timeScaleOldBPMNumericUpDown
+            // 
+            this.timeScaleOldBPMNumericUpDown.DecimalPlaces = 2;
+            this.timeScaleOldBPMNumericUpDown.Location = new System.Drawing.Point(82, 45);
+            this.timeScaleOldBPMNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.timeScaleOldBPMNumericUpDown.Name = "timeScaleOldBPMNumericUpDown";
+            this.timeScaleOldBPMNumericUpDown.Size = new System.Drawing.Size(58, 20);
+            this.timeScaleOldBPMNumericUpDown.TabIndex = 11;
+            this.timeScaleOldBPMNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // scaleHoldsCheckBox
             // 
             this.scaleHoldsCheckBox.AutoSize = true;
@@ -899,7 +968,7 @@ namespace DyMChartTool
             // 
             // moveDestinationNumericUpDown
             // 
-            this.moveDestinationNumericUpDown.DecimalPlaces = 5;
+            this.moveDestinationNumericUpDown.DecimalPlaces = 10;
             this.moveDestinationNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
@@ -1163,74 +1232,6 @@ namespace DyMChartTool
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // stretchMultiplierRadioButton
-            // 
-            this.stretchMultiplierRadioButton.AutoSize = true;
-            this.stretchMultiplierRadioButton.Checked = true;
-            this.stretchMultiplierRadioButton.Location = new System.Drawing.Point(10, 19);
-            this.stretchMultiplierRadioButton.Name = "stretchMultiplierRadioButton";
-            this.stretchMultiplierRadioButton.Size = new System.Drawing.Size(66, 17);
-            this.stretchMultiplierRadioButton.TabIndex = 10;
-            this.stretchMultiplierRadioButton.Text = "Multiplier";
-            this.toolTip.SetToolTip(this.stretchMultiplierRadioButton, "The first note will be exactly at the destination time");
-            this.stretchMultiplierRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // timeScaleOldBPMNumericUpDown
-            // 
-            this.timeScaleOldBPMNumericUpDown.DecimalPlaces = 2;
-            this.timeScaleOldBPMNumericUpDown.Location = new System.Drawing.Point(82, 45);
-            this.timeScaleOldBPMNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.timeScaleOldBPMNumericUpDown.Name = "timeScaleOldBPMNumericUpDown";
-            this.timeScaleOldBPMNumericUpDown.Size = new System.Drawing.Size(58, 20);
-            this.timeScaleOldBPMNumericUpDown.TabIndex = 11;
-            this.timeScaleOldBPMNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(10, 45);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(48, 17);
-            this.radioButton5.TabIndex = 12;
-            this.radioButton5.Text = "BPM";
-            this.toolTip.SetToolTip(this.radioButton5, "The first note will be exactly at the destination time");
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "->";
-            // 
-            // timeScaleNewBPMNumericUpDown
-            // 
-            this.timeScaleNewBPMNumericUpDown.DecimalPlaces = 2;
-            this.timeScaleNewBPMNumericUpDown.Location = new System.Drawing.Point(168, 45);
-            this.timeScaleNewBPMNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.timeScaleNewBPMNumericUpDown.Name = "timeScaleNewBPMNumericUpDown";
-            this.timeScaleNewBPMNumericUpDown.Size = new System.Drawing.Size(58, 20);
-            this.timeScaleNewBPMNumericUpDown.TabIndex = 14;
-            this.timeScaleNewBPMNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // EditOperationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1270,6 +1271,8 @@ namespace DyMChartTool
             this.changeTimeTab.PerformLayout();
             this.stretchNotesGroupBox.ResumeLayout(false);
             this.stretchNotesGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeScaleNewBPMNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeScaleOldBPMNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeScaleNumericUpDown)).EndInit();
             this.moveNotesGroupBox.ResumeLayout(false);
             this.moveNotesGroupBox.PerformLayout();
@@ -1284,8 +1287,6 @@ namespace DyMChartTool
             this.deleteTypeGroupBox.PerformLayout();
             this.deleteTracksGroupBox.ResumeLayout(false);
             this.deleteTracksGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeScaleOldBPMNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeScaleNewBPMNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }

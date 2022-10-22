@@ -191,7 +191,7 @@ namespace DyMChartTool
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 71);
+            this.label1.Location = new System.Drawing.Point(102, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 5;
@@ -199,27 +199,27 @@ namespace DyMChartTool
             // 
             // timeRangeEndNumericUpDown
             // 
-            this.timeRangeEndNumericUpDown.DecimalPlaces = 5;
+            this.timeRangeEndNumericUpDown.DecimalPlaces = 10;
             this.timeRangeEndNumericUpDown.Enabled = false;
             this.timeRangeEndNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
             0,
             131072});
-            this.timeRangeEndNumericUpDown.Location = new System.Drawing.Point(99, 65);
+            this.timeRangeEndNumericUpDown.Location = new System.Drawing.Point(122, 65);
             this.timeRangeEndNumericUpDown.Maximum = new decimal(new int[] {
             -1530494976,
             232830,
             0,
             0});
             this.timeRangeEndNumericUpDown.Name = "timeRangeEndNumericUpDown";
-            this.timeRangeEndNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.timeRangeEndNumericUpDown.Size = new System.Drawing.Size(90, 20);
             this.timeRangeEndNumericUpDown.TabIndex = 4;
             this.timeRangeEndNumericUpDown.ValueChanged += new System.EventHandler(this.timeRangeEndNumericUpDown_ValueChanged);
             // 
             // timeRangeStartNumericUpDown
             // 
-            this.timeRangeStartNumericUpDown.DecimalPlaces = 5;
+            this.timeRangeStartNumericUpDown.DecimalPlaces = 10;
             this.timeRangeStartNumericUpDown.Enabled = false;
             this.timeRangeStartNumericUpDown.Increment = new decimal(new int[] {
             2,
@@ -233,7 +233,7 @@ namespace DyMChartTool
             0,
             0});
             this.timeRangeStartNumericUpDown.Name = "timeRangeStartNumericUpDown";
-            this.timeRangeStartNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.timeRangeStartNumericUpDown.Size = new System.Drawing.Size(90, 20);
             this.timeRangeStartNumericUpDown.TabIndex = 3;
             this.timeRangeStartNumericUpDown.ValueChanged += new System.EventHandler(this.timeRangeStartNumericUpDown_ValueChanged);
             // 
