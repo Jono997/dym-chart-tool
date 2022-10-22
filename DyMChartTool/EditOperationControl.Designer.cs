@@ -166,7 +166,7 @@ namespace DyMChartTool
             // timeRangeDividerLabel
             // 
             this.timeRangeDividerLabel.AutoSize = true;
-            this.timeRangeDividerLabel.Location = new System.Drawing.Point(163, 44);
+            this.timeRangeDividerLabel.Location = new System.Drawing.Point(185, 44);
             this.timeRangeDividerLabel.Name = "timeRangeDividerLabel";
             this.timeRangeDividerLabel.Size = new System.Drawing.Size(10, 13);
             this.timeRangeDividerLabel.TabIndex = 4;
@@ -174,27 +174,27 @@ namespace DyMChartTool
             // 
             // timeRangeEndNumericUpDown
             // 
-            this.timeRangeEndNumericUpDown.DecimalPlaces = 5;
+            this.timeRangeEndNumericUpDown.DecimalPlaces = 9;
             this.timeRangeEndNumericUpDown.Enabled = false;
             this.timeRangeEndNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
             0,
             131072});
-            this.timeRangeEndNumericUpDown.Location = new System.Drawing.Point(179, 42);
+            this.timeRangeEndNumericUpDown.Location = new System.Drawing.Point(201, 42);
             this.timeRangeEndNumericUpDown.Maximum = new decimal(new int[] {
             -1530494976,
             232830,
             0,
             0});
             this.timeRangeEndNumericUpDown.Name = "timeRangeEndNumericUpDown";
-            this.timeRangeEndNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.timeRangeEndNumericUpDown.Size = new System.Drawing.Size(89, 20);
             this.timeRangeEndNumericUpDown.TabIndex = 3;
             this.toolTip.SetToolTip(this.timeRangeEndNumericUpDown, "When to stop applying the effect (milliseconds)");
             // 
             // timeRangeStartNumericUpDown
             // 
-            this.timeRangeStartNumericUpDown.DecimalPlaces = 5;
+            this.timeRangeStartNumericUpDown.DecimalPlaces = 9;
             this.timeRangeStartNumericUpDown.Enabled = false;
             this.timeRangeStartNumericUpDown.Increment = new decimal(new int[] {
             2,
@@ -208,7 +208,7 @@ namespace DyMChartTool
             0,
             0});
             this.timeRangeStartNumericUpDown.Name = "timeRangeStartNumericUpDown";
-            this.timeRangeStartNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.timeRangeStartNumericUpDown.Size = new System.Drawing.Size(89, 20);
             this.timeRangeStartNumericUpDown.TabIndex = 2;
             this.toolTip.SetToolTip(this.timeRangeStartNumericUpDown, "When to start applying the effect (milliseconds)");
             // 
@@ -488,7 +488,7 @@ namespace DyMChartTool
             // copyDestinationTimeNumericUpDown
             // 
             this.copyDestinationTimeNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyDestinationTimeNumericUpDown.DecimalPlaces = 5;
+            this.copyDestinationTimeNumericUpDown.DecimalPlaces = 9;
             this.copyDestinationTimeNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
@@ -655,46 +655,46 @@ namespace DyMChartTool
             // copyRangeStartNumericUpDown
             // 
             this.copyRangeStartNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyRangeStartNumericUpDown.DecimalPlaces = 5;
+            this.copyRangeStartNumericUpDown.DecimalPlaces = 9;
             this.copyRangeStartNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
             0,
             131072});
-            this.copyRangeStartNumericUpDown.Location = new System.Drawing.Point(187, 19);
+            this.copyRangeStartNumericUpDown.Location = new System.Drawing.Point(143, 19);
             this.copyRangeStartNumericUpDown.Maximum = new decimal(new int[] {
             -727379968,
             232,
             0,
             0});
             this.copyRangeStartNumericUpDown.Name = "copyRangeStartNumericUpDown";
-            this.copyRangeStartNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.copyRangeStartNumericUpDown.Size = new System.Drawing.Size(89, 20);
             this.copyRangeStartNumericUpDown.TabIndex = 0;
             // 
             // copyRangeEndNumericUpDown
             // 
             this.copyRangeEndNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyRangeEndNumericUpDown.DecimalPlaces = 5;
+            this.copyRangeEndNumericUpDown.DecimalPlaces = 9;
             this.copyRangeEndNumericUpDown.Increment = new decimal(new int[] {
             2,
             0,
             0,
             131072});
-            this.copyRangeEndNumericUpDown.Location = new System.Drawing.Point(276, 19);
+            this.copyRangeEndNumericUpDown.Location = new System.Drawing.Point(254, 19);
             this.copyRangeEndNumericUpDown.Maximum = new decimal(new int[] {
             -727379968,
             232,
             0,
             0});
             this.copyRangeEndNumericUpDown.Name = "copyRangeEndNumericUpDown";
-            this.copyRangeEndNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.copyRangeEndNumericUpDown.Size = new System.Drawing.Size(89, 20);
             this.copyRangeEndNumericUpDown.TabIndex = 1;
             // 
             // copyRangeDividerLabel
             // 
             this.copyRangeDividerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.copyRangeDividerLabel.AutoSize = true;
-            this.copyRangeDividerLabel.Location = new System.Drawing.Point(260, 21);
+            this.copyRangeDividerLabel.Location = new System.Drawing.Point(238, 21);
             this.copyRangeDividerLabel.Name = "copyRangeDividerLabel";
             this.copyRangeDividerLabel.Size = new System.Drawing.Size(10, 13);
             this.copyRangeDividerLabel.TabIndex = 2;
